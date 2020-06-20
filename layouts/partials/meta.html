@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#436b95">
+<meta name="apple-mobile-web-app-title" content="Miscellanies">
+<meta name="application-name" content="Miscellanies">
+<meta name="msapplication-TileColor" content="#436b95">
+<meta name="theme-color" content="#436b95">
+
+{{ with .Description }}
+  <meta name="description" content="{{ . }}">
+{{ else }}
+  {{ if .IsPage }}
+    <meta name="description" content="{{ .Summary }}">
+  {{ else }}
+    {{ with site.Params.description }}
+      <meta name="description" content="{{ . }}">
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if site.Params.schema }}
+  {{ template "_internal/schema.html" . }}
+{{ end }}
+
+{{ if site.Params.opengraph }}
+  {{ template "_internal/opengraph.html" . }}
+{{ end }}
+
+{{ if site.Params.twittercards }}
+  {{ template "_internal/twitter_cards.html" . }}
+{{ end }}
+
+{{ hugo.Generator }}

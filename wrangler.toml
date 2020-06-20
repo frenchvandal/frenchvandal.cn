@@ -1,0 +1,8 @@
+name = "frenchvandal"
+type = "webpack"
+workers_dev = false
+route = "frenchvandal.com/*"
+
+[site]
+bucket = "public"
+entry-point = "workers-site"

@@ -1,0 +1,65 @@
+baseURL: 'https://frenchvandal.com'
+title: Miscellanies
+author: frenchvandal
+languageCode: en-us
+pygmentsCodeFences: true
+enableRobotsTXT: true
+theme: hugo-flex
+publishDir: public
+enableGitInfo: true
+copyright: >
+  Copyright © 2020 frenchvandal – Except where otherwise noted, content on this
+  site is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives
+  4.0 International License (https://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+permalinks:
+  posts: '/:filename/'
+  pages: '/:filename/'
+
+params:
+  color: rgb(18,18,18)
+  width: 47rem
+  description: frenchvandal's webpages
+  footer: >-
+   &#32;<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license">&#32;<img alt="Creative Commons icon" src="/icons.svg#creativecommons" loading="lazy" height="24" width="24" /></a>
+   &#32;<a href="https://github.com/frenchvandal/">&#32;<img alt="GitHub icon" src="/icons.svg#github" loading="lazy" height="24" width="24" /></a>
+   &#32;<a href="https://twitter.com/frenchvandal">&#32;<img alt="Twitter icon" src="/icons.svg#twitter" loading="lazy" height="24" width="24" /></a>
+   &#32;<a href="https://keybase.io/frenchvandal">&#32;<img alt="Keybase icon" src="/icons.svg#keybase" loading="lazy" height="24" width="24" /></a>
+   &#32;<a href="https://telegram.me/frenchvandal">&#32;<img alt="Telegram icon" src="/icons.svg#telegram" loading="lazy" height="24" width="24" /></a>
+  rss: >-
+    To subscribe to this RSS feed, copy the address in the address bar and paste
+    it into your favorite feed reader.
+  divider: '\2015\2015' # Set to false to remove divider below posts on homepage
+  schema: true
+  opengraph: true
+  twittercards: true
+  summaries: false
+  enableEmoji: true
+  utterances:
+    repo:               # Set to Utterances repo URL to add Utterances comments
+    issueterm: pathname
+    theme: github-light
+  netlify:
+    honeypot: false     # Set to true to add honeypot field in contact form
+    recaptcha: false    # Set to true to add recaptcha challenge in contact form
+  # css:                # Uncomment to add custom CSS from a list of files
+  #   - css/foo.css
+  #   - bar.css
+  # js:                 # Uncomment to add custom JS from a list of files
+  #   - js/foo.js
+  #   - bar.js
+
+menu:
+  nav:
+    - name: About
+      url: about/
+      weight: 1
+    - name: Archives
+      url: archives/
+      weight: 2
+    - name: Tags
+      url: tags/
+      weight: 3
+    - name: Categories
+      url: categories/
+      weight: 4
