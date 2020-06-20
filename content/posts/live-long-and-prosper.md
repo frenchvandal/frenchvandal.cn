@@ -12,6 +12,4 @@ tags:
 
 This is a first blog post. Hello World!!!
 
-{{< image src="/img/V.png" loading="lazy" alt="Diana in V" width="720" >}}
-
 Thanks to GoHugo for providing blazing fast static site generation.
