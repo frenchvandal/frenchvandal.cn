@@ -5,8 +5,7 @@ description: An example blog post.
 categories:
 - demo
 tags:
-- hello world
-- good bye world
+- Hello World
 - Zatoichi
 ---
 
