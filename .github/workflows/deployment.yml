@@ -33,5 +33,4 @@ jobs:
           export_default_credentials: true
       - run: |
           gsutil -h "Cache-Control:public,max-age=2628000,must-revalidate" -m rsync -r -d public gs://frenchvandal
-          gsutil -m cp -rz public gs://frenchvandal
           gsutil -m setmeta -h "Content-Type: text/html; charset=utf-8" -h "Content-Language: en" gs://frenchvandal/**/*.html
