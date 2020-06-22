@@ -18,3 +18,5 @@ It's possible to process video motion data > 30 frames/sec with the Raspberry Pi
 
 
 Good bye!
+
+[License](/license)
