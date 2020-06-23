@@ -21,7 +21,7 @@ params:
   width: 47rem
   description: frenchvandal's webpages
   footer: >-
-   &#32;<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">&#32;<img alt="Creative Commons icon" src="/icons.svg#creativecommons" loading="lazy" height="24" width="24" /></a>
+   &#32;<a href="/license/" rel="license">&#32;<img alt="Creative Commons icon" src="/icons.svg#creativecommons" loading="lazy" height="24" width="24" /></a>
    &#32;<a href="https://github.com/frenchvandal/">&#32;<img alt="GitHub icon" src="/icons.svg#github" loading="lazy" height="24" width="24" /></a>
    &#32;<a href="https://twitter.com/frenchvandal">&#32;<img alt="Twitter icon" src="/icons.svg#twitter" loading="lazy" height="24" width="24" /></a>
    &#32;<a href="https://keybase.io/frenchvandal">&#32;<img alt="Keybase icon" src="/icons.svg#keybase" loading="lazy" height="24" width="24" /></a>
