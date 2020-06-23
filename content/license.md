@@ -1,11 +1,10 @@
 ---
 title: License
 description: License
-date: 2019-02-28
 author: frenchvandal
 ---
 
-The content of Miscellanies is published under the terms of the WTFPL license:
+Except where otherwise noted, the written content of this site is published under the terms of the WTFPL license:
 
 ```
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
