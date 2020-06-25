@@ -9,6 +9,6 @@ tags:
 - Zatoichi
 ---
 
-This is a first blog post. Hello World!!! Cool story bro.
+This is a first blog post. Hello World!!!
 
 Thanks to GoHugo for providing blazing fast static site generation.

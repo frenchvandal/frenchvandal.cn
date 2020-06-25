@@ -9,4 +9,4 @@ tags:
 - Zatoichi
 ---
 
-Adama is badass.
+This is a test for Alibaba Cloud.

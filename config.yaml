@@ -19,7 +19,7 @@ permalinks:
 params:
   color: rgb(18,18,18)
   width: 47rem
-  description: frenchvandal's webpages
+  description: Cool stories of my life
   footer: >-
    &#32;<a href="/license/" rel="license">&#32;<img alt="Creative Commons icon" src="/icons.svg#creativecommons" loading="lazy" height="24" width="24" /></a>
    &#32;<a href="https://github.com/frenchvandal/">&#32;<img alt="GitHub icon" src="/icons.svg#github" loading="lazy" height="24" width="24" /></a>
