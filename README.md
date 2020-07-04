@@ -1,6 +1,6 @@
 # Miscellanies
 
-![frenchvandal.com official banner](/static/banner.png?raw=true "Official banner")
+![frenchvandal.com official banner](/static/img/banner.webp?raw=true "Official banner")
 
 ## Overview
 
