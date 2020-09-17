@@ -9,4 +9,4 @@ tags:
 - Zatoichi
 ---
 
-This is a test for Alibaba Cloud.
+This is a test for fun.
