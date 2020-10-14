@@ -5,7 +5,7 @@ on:
     branches: master
 
 env:
-  HUGO_VERSION: 0.76.4
+  HUGO_VERSION: 0.76.5
 
 jobs:
   build:
