@@ -26,7 +26,7 @@ jobs:
       - name: Build Hugo
         run: hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
 
-      - uses: TencentCloud/cos-action@v1
+      - uses: TencentCloud/cos-action@master
         with:
           secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
           secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
