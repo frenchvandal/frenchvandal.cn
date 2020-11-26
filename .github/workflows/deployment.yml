@@ -35,7 +35,7 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            az storage blob upload-batch --account-name frenchvandal.cn -d '$web' -s public
+            az storage blob upload-batch --account-name frenchvandalcn -d '$web' -s public
       - name: Azure CLI script
         uses: azure/CLI@v1
         with:
