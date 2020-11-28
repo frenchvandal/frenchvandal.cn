@@ -58,10 +58,10 @@ jobs:
           git config --global user.name "frenchvandal"
           mkdir -p /home/runner/work/tmp/
           git clone https://github.com/frenchvandal/frenchvandal.github.io.git /home/runner/work/tmp/
-          rsync -avu --delete --exclude={'CNAME','.git'} "$GITHUB_WORKSPACE/public/" "/home/runner/work/tmp/frenchvandal.github.io/"
+          rsync -avu --delete --exclude={'CNAME','.git',"LICENSE"} "$GITHUB_WORKSPACE/public/" "/home/runner/work/tmp/frenchvandal.github.io/"
           cd /home/runner/work/tmp/frenchvandal.github.io/
           echo "ls /home/runner/work/tmp/frenchvandal.github.io/"
           ls /home/runner/work/tmp/frenchvandal.github.io/
-        #git add .
-        #git commit -m "Update $COMMIT_SHA"
-        #git push origin master
+          git add .
+          git commit -m "Update $COMMIT_SHA"
+          git push origin master
