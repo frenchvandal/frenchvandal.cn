@@ -5,7 +5,7 @@ on:
     branches: master
 
 env:
-  HUGO_VERSION: 0.78.2
+  HUGO_VERSION: 0.79.0
 
 jobs:
   build:
@@ -52,6 +52,4 @@ jobs:
       - name: commit PUBLIC
         run: |
           git submodule update --remote --rebase
-          git add .
-          git commit -m "update $COMMIT_SHA"
-          git push origin master
+          
