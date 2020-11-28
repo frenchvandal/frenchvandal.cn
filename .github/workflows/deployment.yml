@@ -51,7 +51,7 @@ jobs:
 
       - name: commit PUBLIC
         run: |
-          cd $GITHUB_WORKSPACE/public
+          git submodule update --remote --rebase
           git add .
           git commit -m "update $COMMIT_SHA"
           git push origin master
