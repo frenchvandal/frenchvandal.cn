@@ -66,7 +66,7 @@ jobs:
           ls /home/runner/work/{GITHUB_ACTOR}.github.io
           echo "ls /home/runner/work/{GITHUB_ACTOR}.github.io/{GITHUB_ACTOR}.github.io""
           ls /home/runner/work/{GITHUB_ACTOR}.github.io/{GITHUB_ACTOR}.github.io"
-          rsync -avu --delete --exclude={'.git','CNAME',"LICENSE"} "$GITHUB_WORKSPACE/public/" "/home/runner/work/{GITHUB_ACTOR}.github.io"
+          rsync -av --delete --exclude={'.git','CNAME',"LICENSE"} "$GITHUB_WORKSPACE/public/" "/home/runner/work/{GITHUB_ACTOR}.github.io"
           cd /home/runner/work/{GITHUB_ACTOR}.github.io/
           git add .
           echo $COMMIT_SHA
