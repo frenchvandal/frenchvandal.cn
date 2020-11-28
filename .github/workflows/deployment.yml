@@ -27,4 +27,6 @@ jobs:
         run: hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
 
       - name: Check stuff
-        run: echo "$GITHUB_WORKSPACE/public"
+        run: |
+          ls $GITHUB_WORKSPACE/public
+          echo "$GITHUB_SHA"
