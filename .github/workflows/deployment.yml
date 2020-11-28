@@ -15,6 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
         with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           submodules: true
 
       - name: Download and install Hugo
@@ -53,11 +54,10 @@ jobs:
       - name: commit PUBLIC
         run: |
           git submodule update --remote --rebase
-          git config --global hub.protocol ssh
-          git config --global user.email "42499534+frenchvandal@users.noreply.github.com"
-          git config --global user.name "frenchvandal"
+          git config --global user.email "42499534+${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global user.name "${GITHUB_ACTOR}"
           mkdir -p /home/runner/work/tmp/
-          git clone https://github.com/frenchvandal/frenchvandal.github.io.git /home/runner/work/tmp/
+          git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /home/runner/work/tmp/
           rsync -avu --delete --exclude={'.git','CNAME',"LICENSE"} "$GITHUB_WORKSPACE/public/" "/home/runner/work/tmp/frenchvandal.github.io/"
           cd /home/runner/work/tmp/frenchvandal.github.io/
           echo "ls /home/runner/work/tmp/frenchvandal.github.io/"
