@@ -56,5 +56,5 @@ jobs:
           git config --global user.email "frenchvandal@yandex.com"
           git config --global user.name "frenchvandal"
           sudo mkdir -p /home/runner/work/tmp/
-          sudo git clone --progress --verbose https://github.com/frenchvandal/frenchvandal.github.io.git /home/runner/work/
+          sudo git clone --progress --verbose https://github.com/frenchvandal/frenchvandal.github.io.git /home/runner/work/tmp/
           sudo rsync -avu "$GITHUB_WORKSPACE/public/" "/home/runner/work/tmp/frenchvandal.github.io/"
