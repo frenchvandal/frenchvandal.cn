@@ -17,6 +17,10 @@ jobs:
         with:
           submodules: true
           token: ${{ secrets.PAT }}
+        run: |
+          git submodule update --remote --rebase
+          git config --global user.email "frenchvandal@yandex.com"
+          git config --global user.name "frenchvandal"
 
       - name: Download and install Hugo
         run: |
@@ -51,5 +55,5 @@ jobs:
 
       - name: commit PUBLIC
         run: |
-          git submodule update --remote --rebase
-          
+          git clone --progress --verbose https://github.com/frenchvandal/frenchvandal.github.io.git $GITHUB_WORKSPACE
+          rsync -avu "$GITHUB_WORKSPACE/public/" "$GITHUB_WORKSPACE/frenchvandal.github.io/"
