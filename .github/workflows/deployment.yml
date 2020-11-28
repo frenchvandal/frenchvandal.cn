@@ -52,6 +52,8 @@ jobs:
           echo "GITHUB_GRAPHQL_URL : $GITHUB_GRAPHQL_URL"
 
       - name: commit PUBLIC
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           git submodule update --remote --rebase
           git config --global hub.protocol https
