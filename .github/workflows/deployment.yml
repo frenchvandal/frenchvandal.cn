@@ -54,20 +54,13 @@ jobs:
         run: |
           export COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           git submodule update --remote --rebase
-          echo "ls $GITHUB_WORKSPACE/public/"
-          ls $GITHUB_WORKSPACE/public/
           git config --global user.email "42499534+${GITHUB_ACTOR}@users.noreply.github.com"
           git config --global user.name "${GITHUB_ACTOR}"
           mkdir -p /home/runner/work/{GITHUB_ACTOR}.github.io/
-          echo "ls /home/runner/work/{GITHUB_ACTOR}.github.io"
-          ls /home/runner/work/{GITHUB_ACTOR}.github.io
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /home/runner/work/{GITHUB_ACTOR}.github.io/
-          echo "ls /home/runner/work/{GITHUB_ACTOR}.github.io"
-          ls /home/runner/work/{GITHUB_ACTOR}.github.io
-          rm -rf !(".git"|"CNAME"|"LICENSE")
-          mv $GITHUB_WORKSPACE/public/ /home/runner/work/{GITHUB_ACTOR}.github.io
           cd /home/runner/work/{GITHUB_ACTOR}.github.io/
+          rm -rf !(".git"|"CNAME"|"LICENSE")
+          mv $GITHUB_WORKSPACE/public/ .
           git add .
-          echo $COMMIT_SHA
-          git commit -m "Update $COMMIT_SHA"
+          git commit -m "Update from $COMMIT_SHA@$GITHUB_REPOSITORY"
           git push origin master
