@@ -59,9 +59,6 @@ jobs:
           mkdir -p /home/runner/work/{GITHUB_ACTOR}.github.io/
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /home/runner/work/{GITHUB_ACTOR}.github.io/
           cd /home/runner/work/{GITHUB_ACTOR}.github.io/
-          shopt -s extglob
-          rm -rf !(".git"|"CNAME"|"LICENSE")
-          mv $GITHUB_WORKSPACE/public/ /home/runner/work/{GITHUB_ACTOR}.github.io/
-          git add -v /home/runner/work/{GITHUB_ACTOR}.github.io/
-          git commit -m "Update from $COMMIT_SHA@$GITHUB_REPOSITORY"
+          git add -v $GITHUB_WORKSPACE/public/
+          git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
