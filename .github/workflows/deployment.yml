@@ -28,5 +28,6 @@ jobs:
 
       - name: Check stuff
         run: |
+          COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           ls $GITHUB_WORKSPACE/public
-          echo "$GITHUB_SHA"
+          echo "$COMMIT_SHA"
