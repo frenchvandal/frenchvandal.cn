@@ -31,6 +31,7 @@ jobs:
         run: |
           COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           ls $GITHUB_WORKSPACE/public
+          git submodule update --remote --rebase
           echo "$HOME"
           echo "commit_sha : $COMMIT_SHA"
           echo "CI : $CI"
@@ -59,3 +60,7 @@ jobs:
           mkdir -p /home/runner/work/tmp/
           git clone --progress --verbose https://github.com/frenchvandal/frenchvandal.github.io.git /home/runner/work/tmp/
           rsync -avu "$GITHUB_WORKSPACE/public/" "/home/runner/work/tmp/frenchvandal.github.io/"
+          cd /home/runner/work/tmp/frenchvandal.github.io/
+          git add .
+          git commit -m "Update $COMMIT_SHA"
+          git push origin master
