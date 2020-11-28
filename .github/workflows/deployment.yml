@@ -29,7 +29,6 @@ jobs:
 
       - name: Check stuff
         run: |
-          COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           ls $GITHUB_WORKSPACE/public
           git submodule update --remote --rebase
           echo "$HOME"
@@ -53,6 +52,7 @@ jobs:
 
       - name: commit PUBLIC
         run: |
+          COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           git submodule update --remote --rebase
           echo "ls $GITHUB_WORKSPACE/public/"
           ls $GITHUB_WORKSPACE/public/
