@@ -54,6 +54,7 @@ jobs:
       - name: commit PUBLIC
         run: |
           git submodule update --remote --rebase
+          git config --global hub.protocol https
           git config --global user.email "frenchvandal@yandex.com"
           git config --global user.name "frenchvandal"
           mkdir -p /home/runner/work/tmp/
