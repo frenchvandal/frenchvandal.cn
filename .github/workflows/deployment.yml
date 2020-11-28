@@ -55,6 +55,6 @@ jobs:
           git submodule update --remote --rebase
           git config --global user.email "frenchvandal@yandex.com"
           git config --global user.name "frenchvandal"
-          ls /home/tmp/
+          ls /home/
           git clone --progress --verbose https://github.com/frenchvandal/frenchvandal.github.io.git /home/tmp/
           rsync -avu "$GITHUB_WORKSPACE/public/" "/home/tmp/frenchvandal.github.io/"
