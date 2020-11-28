@@ -17,11 +17,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Download Hugo
-        run: sudo wget -q https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
-
-      - name: Install Hugo
-        run: sudo dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
+      - name: Download and install Hugo
+        run: |
+          sudo wget -q https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
+          sudo dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
+          ls $GITHUB_WORKSPACE/public
 
       - name: Build Hugo
         run: hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
