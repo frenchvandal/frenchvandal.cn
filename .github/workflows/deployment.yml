@@ -59,6 +59,7 @@ jobs:
           mkdir -p /home/runner/work/{GITHUB_ACTOR}.github.io/
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /home/runner/work/{GITHUB_ACTOR}.github.io/
           cd /home/runner/work/{GITHUB_ACTOR}.github.io/
+          shopt -s extglob
           rm -rf !(".git"|"CNAME"|"LICENSE")
           mv $GITHUB_WORKSPACE/public/ .
           git add .
