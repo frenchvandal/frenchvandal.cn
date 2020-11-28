@@ -25,3 +25,6 @@ jobs:
 
       - name: Build Hugo
         run: hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
+
+      - name: Check stuff
+        run: echo "$GITHUB_WORKSPACE/public"
