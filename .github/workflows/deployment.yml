@@ -60,10 +60,6 @@ jobs:
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /home/runner/work/{GITHUB_ACTOR}.github.io/
           rsync -avu --delete --exclude={'.git','CNAME',"LICENSE"} "$GITHUB_WORKSPACE/public/" "/home/runner/work/{GITHUB_ACTOR}.github.io"
           cd /home/runner/work/{GITHUB_ACTOR}.github.io/
-        #echo "ls /home/runner/work/tmp/"
-        #ls /home/runner/work/tmp/
-        #echo "ls /home/runner/work/tmp/frenchvandal.github.io/"
-        #ls /home/runner/work/tmp/frenchvandal.github.io/
           git add .
           echo $COMMIT_SHA
           git commit -m "Update $COMMIT_SHA"
