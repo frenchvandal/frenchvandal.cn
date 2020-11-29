@@ -37,8 +37,8 @@ jobs:
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /tmp/{GITHUB_ACTOR}.github.io/
           cd /tmp/{GITHUB_ACTOR}.github.io/
           shopt -s extglob
-          rm --verbose -rf !(".git"|"CNAME"|"LICENSE"|"README.md")
+          rm -rf !(".git"|"CNAME"|"LICENSE"|"README.md")
           mv $GITHUB_WORKSPACE/public/* /tmp/{GITHUB_ACTOR}.github.io/
-          git add -v /tmp/{GITHUB_ACTOR}.github.io/
+          git add /tmp/{GITHUB_ACTOR}.github.io/
           git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
