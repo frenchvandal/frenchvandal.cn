@@ -5,8 +5,6 @@ on:
 
 env:
   HUGO_VERSION: 0.79.0
-  COMMIT_SHA: $(cut -c-7 <<< "$GITHUB_SHA")
-  GH_PAGES_STATUS: $( curl -s  -X GET -H "Header:Value" https://kctbh9vrtdwd.statuspage.io/api/v2/components.json |  jq -r '.components[] | select(.name == "GitHub Pages") | .status' )
 
 jobs:
   build:
@@ -15,8 +13,6 @@ jobs:
     steps:
       - name: Check GitHub Pages status
         run: |
-          echo ${GH_PAGES_STATUS}
-          echo ${COMMIT_SHA}
           GH_PAGES_STATUS=$( curl -s  -X GET -H "Header:Value" https://kctbh9vrtdwd.statuspage.io/api/v2/components.json |  jq -r '.components[] | select(.name == "GitHub Pages") | .status' )
           echo ${GH_PAGES_STATUS}
 
