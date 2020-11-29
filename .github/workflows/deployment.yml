@@ -26,14 +26,13 @@ jobs:
       - name: Build and deploy
         run: |
           export COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
-          git config --global user.email "583231+octocat@users.noreply.github.com"
+          git config --global user.email "octocat@users.noreply.github.com"
           git config --global user.name "The Octocat"
           git submodule update --remote --rebase
           mkdir -p $GITHUB_WORKSPACE/public
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git $GITHUB_WORKSPACE/public/
           hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
           cd $GITHUB_WORKSPACE/public
-          echo "frenchvandal.cn" > CNAME
           git add .
           git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
