@@ -37,7 +37,7 @@ jobs:
           cd /home/runner/work/{GITHUB_ACTOR}.github.io/
           shopt -s extglob
           rm --verbose -rf !(".git"|"CNAME"|"LICENSE")
-          mv $GITHUB_WORKSPACE/public/ /home/runner/work/{GITHUB_ACTOR}.github.io/
+          mv $GITHUB_WORKSPACE/public/* /home/runner/work/{GITHUB_ACTOR}.github.io/
           git add -v /home/runner/work/{GITHUB_ACTOR}.github.io/
           git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
