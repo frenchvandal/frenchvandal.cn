@@ -23,24 +23,15 @@ jobs:
           sudo wget -q https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
           sudo dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
 
-      - name: Build Hugo blog
-        run: hugo --cleanDestinationDir --gc --minify --disableKinds RSS
-
-      - name: commit to publish repo
+      - name: Build and deploy
         run: |
-          echo "start $PWD"
-          ls $PWD
-          echo "end $PWD"
-          export COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           git submodule update --remote --rebase
           git config --global user.email "583231+octocat@users.noreply.github.com"
           git config --global user.name "The Octocat"
-          mkdir -p /tmp/{GITHUB_ACTOR}.github.io/
-          git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /tmp/{GITHUB_ACTOR}.github.io/
-          cd /tmp/{GITHUB_ACTOR}.github.io/
-          shopt -s extglob
-          rm -rf !(".git"|"CNAME"|"LICENSE"|"README.md")
-          mv $GITHUB_WORKSPACE/public/* /tmp/{GITHUB_ACTOR}.github.io/
-          git add /tmp/{GITHUB_ACTOR}.github.io/
+          mkdir -p $GITHUB_WORKSPACE/public
+          git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git $GITHUB_WORKSPACE/public/
+          hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
+          cd $GITHUB_WORKSPACE/public
+          git add $GITHUB_WORKSPACE/public/
           git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
