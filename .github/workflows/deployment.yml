@@ -32,12 +32,12 @@ jobs:
           git submodule update --remote --rebase
           git config --global user.email "42499534+${GITHUB_ACTOR}@users.noreply.github.com"
           git config --global user.name "${GITHUB_ACTOR}"
-          mkdir -p /home/runner/work/{GITHUB_ACTOR}.github.io/
-          git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /home/runner/work/{GITHUB_ACTOR}.github.io/
-          cd /home/runner/work/{GITHUB_ACTOR}.github.io/
+          mkdir -p /tmp/{GITHUB_ACTOR}.github.io/
+          git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /tmp/{GITHUB_ACTOR}.github.io/
+          cd /tmp/{GITHUB_ACTOR}.github.io/
           shopt -s extglob
           rm --verbose -rf !(".git"|"CNAME"|"LICENSE")
-          mv $GITHUB_WORKSPACE/public/* /home/runner/work/{GITHUB_ACTOR}.github.io/
-          git add -v /home/runner/work/{GITHUB_ACTOR}.github.io/
+          mv $GITHUB_WORKSPACE/public/* /tmp/{GITHUB_ACTOR}.github.io/
+          git add -v /tmp/{GITHUB_ACTOR}.github.io/
           git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master

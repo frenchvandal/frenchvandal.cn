@@ -9,4 +9,4 @@ tags:
 - Zatoichi
 ---
 
-This is a test for fun.
+This is a test for fun and loss.
