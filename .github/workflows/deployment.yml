@@ -1,17 +1,23 @@
-name: Deploy Hugo on Google Cloud Storage
-
+name: Deploy Hugo on GitHub Pages
 on:
   push:
     branches: master
 
 env:
   HUGO_VERSION: 0.79.0
+  COMMIT_SHA: $(cut -c-7 <<< "$GITHUB_SHA")
+  GH_PAGES_STATUS: $( curl -s  -X GET -H "Header:Value" https://kctbh9vrtdwd.statuspage.io/api/v2/components.json |  jq -r '.components[] | select(.name == "GitHub Pages") | .status' )
 
 jobs:
   build:
     runs-on: ubuntu-20.04
 
     steps:
+      - name: Check GitHub Pages status
+        run: |
+          GH_PAGES_STATUS=$( curl -s  -X GET -H "Header:Value" https://kctbh9vrtdwd.statuspage.io/api/v2/components.json |  jq -r '.components[] | select(.name == "GitHub Pages") | .status' )
+          echo ${GH_PAGES_STATUS}
+
       - name: Checkout
         uses: actions/checkout@master
         with:
