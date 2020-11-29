@@ -24,14 +24,14 @@ jobs:
           sudo dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
 
       - name: Build Hugo blog
-        run: hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
+        run: hugo --cleanDestinationDir --gc --minify --disableKinds RSS
 
       - name: commit to publish repo
         run: |
           export COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           git submodule update --remote --rebase
-          git config --global user.email "actions@github.com"
-          git config --global user.name "Github Actions"
+          git config --global user.email "octocat@@users.noreply.github.com"
+          git config --global user.name "The Octocat"
           mkdir -p /tmp/{GITHUB_ACTOR}.github.io/
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /tmp/{GITHUB_ACTOR}.github.io/
           cd /tmp/{GITHUB_ACTOR}.github.io/
@@ -40,5 +40,5 @@ jobs:
           rm --verbose -rf !(".git"|"CNAME"|"LICENSE")
           mv $GITHUB_WORKSPACE/public/* /tmp/{GITHUB_ACTOR}.github.io/
           git add -v /tmp/{GITHUB_ACTOR}.github.io/
-          git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA" --author="${{ github.actor }} <42499534+${{ github.actor }}@users.noreply.github.com>"
+          git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
