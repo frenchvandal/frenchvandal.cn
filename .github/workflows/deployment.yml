@@ -28,6 +28,7 @@ jobs:
 
       - name: commit to publish repo
         run: |
+          echo "$PWD"
           export COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           git submodule update --remote --rebase
           git config --global user.email "583231+octocat@users.noreply.github.com"
