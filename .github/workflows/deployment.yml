@@ -24,8 +24,8 @@ jobs:
 
       - name: Download and install Hugo
         run: |
-          sudo wget -q https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
-          sudo dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
+          wget -q https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
+          dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
 
       - name: Build and deploy
         run: |
