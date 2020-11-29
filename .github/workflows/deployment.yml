@@ -37,8 +37,6 @@ jobs:
           cd /tmp/{GITHUB_ACTOR}.github.io/
           rsync -av --exclude={'.git','CNAME','LICENSE','README.md'} --delete --dry-run $GITHUB_WORKSPACE/public/ /tmp/{GITHUB_ACTOR}.github.io/
           shopt -s extglob
-      #rm --verbose -rf !(".git"|"CNAME"|"LICENSE"|"README.md")
-      #mv $GITHUB_WORKSPACE/public/* /tmp/{GITHUB_ACTOR}.github.io/
           git add -v /tmp/{GITHUB_ACTOR}.github.io/
           git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
