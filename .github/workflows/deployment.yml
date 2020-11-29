@@ -30,12 +30,12 @@ jobs:
         run: |
           export COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           git submodule update --remote --rebase
-          git config --global user.email "octocat@github.com"
-          git config --global user.name "octocat"
+          git config --global user.email "actions@github.com"
+          git config --global user.name "Github Actions"
           mkdir -p /tmp/{GITHUB_ACTOR}.github.io/
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git /tmp/{GITHUB_ACTOR}.github.io/
           cd /tmp/{GITHUB_ACTOR}.github.io/
-          rsync -av --dry-run $GITHUB_WORKSPACE/public/ /tmp/{GITHUB_ACTOR}.github.io/
+          rsync -av --delete --dry-run $GITHUB_WORKSPACE/public/ /tmp/{GITHUB_ACTOR}.github.io/
           shopt -s extglob
           rm --verbose -rf !(".git"|"CNAME"|"LICENSE")
           mv $GITHUB_WORKSPACE/public/* /tmp/{GITHUB_ACTOR}.github.io/
