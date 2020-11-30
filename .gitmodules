@@ -1,7 +1,3 @@
 [submodule "themes/hugo-flex"]
 	path = themes/hugo-flex
 	url = https://github.com/de-souza/hugo-flex.git
-[submodule "docs"]
-	path = docs
-	url = https://github.com/frenchvandal/frenchvandal.github.io.git
-	branch = master
