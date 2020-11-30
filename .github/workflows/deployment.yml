@@ -14,7 +14,6 @@ jobs:
       - name: Check GitHub Pages status
         run: |
           GH_PAGES_STATUS=$( curl -s  -X GET -H "Header:Value" https://kctbh9vrtdwd.statuspage.io/api/v2/components.json |  jq -r '.components[] | select(.name == "GitHub Pages") | .status' )
-          echo ${GH_PAGES_STATUS}
 
       - name: Checkout
         uses: actions/checkout@master
@@ -29,9 +28,10 @@ jobs:
 
       - name: Build and deploy
         run: |
-          export COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
-          git config --global user.email "octocat@users.noreply.github.com"
-          git config --global user.name "The Octocat"
+          COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
+          USER_ID=$( curl -s  -X GET -H "Header:Value" https://api.github.com/users/${GITHUB_ACTOR} |  jq -r '.components[] | select(.name == "GitHub Pages") | .status' )
+          git config --global user.email "$USER_ID+$GITHUB_ACTOR@users.noreply.github.com"
+          git config --global user.name "$GITHUB_ACTOR"
           git submodule update --remote --rebase
           mkdir -p $GITHUB_WORKSPACE/public
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git $GITHUB_WORKSPACE/public/
