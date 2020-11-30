@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Check GitHub Pages status
         run: |
-          GH_PAGES_STATUS=$( curl -s  -X GET -H "Header:Value" https://kctbh9vrtdwd.statuspage.io/api/v2/components.json |  jq -r '.components[] | select(.name == "GitHub Pages") | .status' )
+          GH_PAGES_STATUS=$(curl -s -X GET -H "Header:Value" https://kctbh9vrtdwd.statuspage.io/api/v2/components.json | jq -r '.components[] | select(.name == "GitHub Pages") | .status')
 
       - name: Checkout
         uses: actions/checkout@master
@@ -21,7 +21,7 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           submodules: true
 
-      - name: Download and install Hugo
+      - name: Install Hugo
         run: |
           wget -q https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
           sudo dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
@@ -29,9 +29,8 @@ jobs:
       - name: Build and deploy
         run: |
           COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
-          USER_ID=$( curl -s  -X GET -H "Header:Value" https://api.github.com/users/${GITHUB_ACTOR} |  jq -r '.id' )
-          USER_NAME=$( curl -s  -X GET -H "Header:Value" https://api.github.com/users/${GITHUB_ACTOR} |  jq -r '.name' )
-          echo $USER_ID $USER_NAME
+          USER_ID=$(curl -s -X GET -H "Header:Value" $GITHUB_API_URL/users/${GITHUB_ACTOR} | jq -r '.id')
+          USER_NAME=$(curl -s -X GET -H "Header:Value" $GITHUB_API_URL/users/${GITHUB_ACTOR} | jq -r '.name')
           git config --global user.email "$USER_ID+$GITHUB_ACTOR@users.noreply.github.com"
           git config --global user.name "$USER_NAME"
           git submodule update --remote --rebase
