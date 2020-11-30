@@ -30,9 +30,10 @@ jobs:
         run: |
           COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           USER_ID=$( curl -s  -X GET -H "Header:Value" https://api.github.com/users/${GITHUB_ACTOR} |  jq -r '.id' )
-          echo USER_ID
+          USER_NAME=$( curl -s  -X GET -H "Header:Value" https://api.github.com/users/${GITHUB_ACTOR} |  jq -r '.name' )
+          echo $USER_ID $USER_NAME
           git config --global user.email "$USER_ID+$GITHUB_ACTOR@users.noreply.github.com"
-          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.name "$USER_NAME"
           git submodule update --remote --rebase
           mkdir -p $GITHUB_WORKSPACE/public
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git $GITHUB_WORKSPACE/public/
