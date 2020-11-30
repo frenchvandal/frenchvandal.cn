@@ -41,4 +41,5 @@ jobs:
           git add .
           git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
-          git submodule foreach git pull origin master
+          cd $GITHUB_WORKSPACE
+          git submodule update --remote --rebase
