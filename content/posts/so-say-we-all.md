@@ -9,4 +9,4 @@ tags:
 - Zatoichi
 ---
 
-This is a test for fun and loss.
+This is a test for the new submodule.
