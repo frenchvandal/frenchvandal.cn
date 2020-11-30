@@ -6,9 +6,7 @@ author: frenchvandal
 ---
 
 Hi my name is Jane Doe.
-I like to write in
-[Julia](https://julialang.org/)
-like:
+I like to write in Julia like:
 
 ```julia
 println("Hello world")
