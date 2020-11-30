@@ -29,7 +29,8 @@ jobs:
       - name: Build and deploy
         run: |
           COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
-          USER_ID=$( curl -s  -X GET -H "Header:Value" https://api.github.com/users/${GITHUB_ACTOR} |  jq -r '.components[] | select(.name == "GitHub Pages") | .status' )
+          USER_ID=$( curl -s  -X GET -H "Header:Value" https://api.github.com/users/${GITHUB_ACTOR} |  jq -r '.id' )
+          echo USER_ID
           git config --global user.email "$USER_ID+$GITHUB_ACTOR@users.noreply.github.com"
           git config --global user.name "$GITHUB_ACTOR"
           git submodule update --remote --rebase
