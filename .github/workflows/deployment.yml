@@ -25,7 +25,6 @@ jobs:
         run: |
           wget -q $GITHUB_SERVER_URL/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
           sudo dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
-          ls /tmp/hugo_cache
 
       - name: Build and deploy
         run: |
