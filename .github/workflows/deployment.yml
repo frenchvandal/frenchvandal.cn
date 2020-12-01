@@ -18,18 +18,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
         with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
 
       - name: Install Hugo
         run: |
-          wget -q https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
+          wget -q $GITHUB_SERVER_URL/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
           sudo dpkg -i hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
 
       - name: Build and deploy
         run: |
           COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
-          USER_ID=$(curl -s -X GET -H "Header:Value" $GITHUB_API_URL/users/${GITHUB_ACTOR} | jq -r '.id')
+          USER_ID=$(curl -u $GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }} -s -X GET -H "Header:Value" $GITHUB_API_URL/users/${GITHUB_ACTOR} | jq -r '.id')
           USER_NAME=$(curl -s -X GET -H "Header:Value" $GITHUB_API_URL/users/${GITHUB_ACTOR} | jq -r '.name')
           git config --global user.email "$USER_ID+$GITHUB_ACTOR@users.noreply.github.com"
           git config --global user.name "$USER_NAME"

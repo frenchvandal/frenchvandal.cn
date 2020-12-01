@@ -9,4 +9,4 @@ tags:
 - Zatoichi
 ---
 
-This is a test for private repo.
+This is a test for actions.
