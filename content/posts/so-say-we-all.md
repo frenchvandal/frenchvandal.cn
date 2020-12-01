@@ -9,4 +9,4 @@ tags:
 - Zatoichi
 ---
 
-This is a test for the new submodule.
+This is a test for private repo.
