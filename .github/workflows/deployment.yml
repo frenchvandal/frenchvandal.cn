@@ -30,7 +30,7 @@ jobs:
         run: |
           COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
           USER_ID=$(curl -u $GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }} -s -X GET -H "Header:Value" $GITHUB_API_URL/users/${GITHUB_ACTOR} | jq -r '.id')
-          USER_NAME=$(curl -s -X GET -H "Header:Value" $GITHUB_API_URL/users/${GITHUB_ACTOR} | jq -r '.name')
+          USER_NAME=$(curl -u $GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }} -s -X GET -H "Header:Value" $GITHUB_API_URL/users/${GITHUB_ACTOR} | jq -r '.name')
           git config --global user.email "$USER_ID+$GITHUB_ACTOR@users.noreply.github.com"
           git config --global user.name "$USER_NAME"
           git submodule update --remote --rebase
