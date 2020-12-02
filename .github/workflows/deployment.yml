@@ -41,5 +41,5 @@ jobs:
           hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
           cd $GITHUB_WORKSPACE/public
           git add .
-          git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
+          git commit -S -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
