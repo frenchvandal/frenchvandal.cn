@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Hugo
         run: |
-          echo $PATH
+          curl -u $GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.v3+json" https://api.github.com/user/public_emails
           wget -q $GITHUB_SERVER_URL/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb -P ~
           sudo apt-get -qq install ~/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb
 
