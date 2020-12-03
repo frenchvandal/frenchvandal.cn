@@ -15,4 +15,4 @@ Hello World!!!
 
 Thanks to GoHugo for providing blazing fast static site generation.
 
-{{< image src="/img/banner.webp" loading="lazy" alt="My banner" width="720" >}}
+{{< image src="https://img.frenchvandal.cn/banner.webp" loading="lazy" alt="My banner" width="720" >}}
