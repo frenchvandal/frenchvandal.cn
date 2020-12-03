@@ -15,4 +15,11 @@ Hello World!!!
 
 Thanks to GoHugo for providing blazing fast static site generation.
 
+Azure:
 {{< image src="https://img.frenchvandal.cn/banner.webp" loading="lazy" alt="My banner" width="720" >}}
+
+Akamai:
+{{< image src="https://img2.frenchvandal.cn/banner.webp" loading="lazy" alt="My banner" width="720" >}}
+
+Verizon:
+{{< image src="https://img3.frenchvandal.cn/banner.webp" loading="lazy" alt="My banner" width="720" >}}
