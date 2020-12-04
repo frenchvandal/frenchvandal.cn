@@ -38,9 +38,6 @@ jobs:
           git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git $GITHUB_WORKSPACE/public
           hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
           cp -R --remove-destination $GITHUB_WORKSPACE/public/. $GITHUB_WORKSPACE/docs
-          git add .
-          git commit -m "Update from $COMMIT_SHA"
-          git push origin master
           cd $GITHUB_WORKSPACE/public
           git add .
           git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
