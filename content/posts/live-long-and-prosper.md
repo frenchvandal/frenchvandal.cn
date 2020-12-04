@@ -15,6 +15,9 @@ Hello World!!!
 
 Thanks to GoHugo for providing blazing fast static site generation.
 
+Cloudfront:
+{{< image src="https://static.frenchvandal.com/banner.webp" loading="lazy" alt="My banner" width="720" >}}
+
 Microsoft:
 {{< image src="https://microsoft.frenchvandal.cn/banner.webp" loading="lazy" alt="My banner" width="720" >}}
 
