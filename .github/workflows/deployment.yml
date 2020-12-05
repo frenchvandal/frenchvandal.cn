@@ -5,6 +5,7 @@ on:
 
 env:
   HUGO_VERSION: 0.79.0
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build:
@@ -29,6 +30,8 @@ jobs:
       - name: Build and deploy
         run: |
           COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
+          git config --local user.email "$(git log --format='%ae' HEAD^!)"
+          git config --local user.name "$(git log --format='%an' HEAD^!)"
           git submodule update --remote --rebase
           hugo --destination ./docs --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
           git add .
