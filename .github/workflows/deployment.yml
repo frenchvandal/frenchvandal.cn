@@ -30,12 +30,17 @@ jobs:
       - name: Build and deploy
         run: |
           COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
-          echo $(git log --format='%ae' HEAD^!)
           git config --local user.email "$(git log --format='%ae' HEAD^!)"
-          echo $(git log --format='%an' HEAD^!)
           git config --local user.name "$(git log --format='%an' HEAD^!)"
           git submodule update --remote --rebase
+          mkdir -p $GITHUB_WORKSPACE/public
+          git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git $GITHUB_WORKSPACE/public
+          hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
           hugo --destination ./docs --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
           git add .
           git commit -m "Update Hugo content from $COMMIT_SHA"
+          git push origin master
+          cd $GITHUB_WORKSPACE/public
+          git add .
+          git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
