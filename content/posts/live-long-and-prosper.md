@@ -13,7 +13,7 @@ This is a first blog post.
 
 Hello World!!!
 
-Thanks to GoHugo for providing blazing fast static site generation.
+Thanks to Hugo for providing blazing fast static site generation.
 
 Cloudfront:
 
