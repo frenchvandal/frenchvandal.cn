@@ -21,4 +21,5 @@ Cloudfront:
 
 Alibaba:
 
-{{< image src="https://y.frenchvandal.cn/banner.webp" loading="lazy" alt="My banner" width="720" >}}
+{{< image src="https://y.frenchvandal.cn/banner.png?image_process=resize,w_720/format,webp
+" loading="lazy" alt="My banner" width="720" >}}
