@@ -40,3 +40,4 @@ jobs:
           git add .
           git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
           git push origin master
+          curl -u $GITHUB_ACTOR:${{ secrets.PERSONAL_ACCESS_TOKEN }} -s -X POST --data '{"event_type": "deploy_hugo_update"}' -H "Accept: application/vnd.github.v3+json" $GITHUB_API_URL/$GITHUB_ACTOR/$GITHUB_ACTOR.github.io/dispatches
