@@ -11,7 +11,7 @@ tags:
 
 This is a first blog post.
 
-Hello World!!!
+Hello World!
 
 Thanks to Hugo for providing blazing fast static site generation.
 
