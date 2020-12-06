@@ -13,8 +13,13 @@ jobs:
 
     steps:
       - name: Check GitHub Pages status
+        id: step_one
         run: |
           GH_PAGES_STATUS=$(curl -s -X GET -H "Header:Value" https://kctbh9vrtdwd.statuspage.io/api/v2/components.json | jq -r '.components[] | select(.name == "GitHub Pages") | .status')
+          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+          curl https://httpbin.org/json >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+
 
       - name: Checkout
         uses: actions/checkout@master
