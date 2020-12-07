@@ -31,7 +31,7 @@ jobs:
         run: |
           wget -q $GITHUB_SERVER_URL/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb -P ~
           sudo apt-get -qq install ~/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb > /dev/null
-
+m
       - name: Build and deploy
         run: |
           COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
