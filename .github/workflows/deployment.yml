@@ -12,14 +12,11 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Check GitHub Pages status
-        id: step_one
-        run: |
-          GH_PAGES_STATUS=$(curl -s -X GET -H "Header:Value" https://kctbh9vrtdwd.statuspage.io/api/v2/components.json | jq -r '.components[] | select(.name == "GitHub Pages") | .status')
-          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          curl https://httpbin.org/json >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-          echo $GITHUB_ENV
+      - name: Check GitHub Status
+        uses: crazy-max/ghaction-github-status@v2.0.1
+        with:
+          overall_threshold: critical
+          pages_threshold: major_outage
 
       - name: Checkout
         uses: actions/checkout@master
@@ -27,28 +24,17 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
 
-      - name: Install Hugo
-        run: |
-          wget -q $GITHUB_SERVER_URL/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb -P ~
-          sudo apt-get -qq install ~/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb > /dev/null
-m
-      - name: Build and deploy
-        run: |
-          COMMIT_SHA=$(cut -c-7 <<< "$GITHUB_SHA")
-          git config --global user.email "$(git log --format='%ae' HEAD^!)"
-          git config --global user.name "$(git log --format='%an' HEAD^!)"
-          mkdir -p $GITHUB_WORKSPACE/public
-          git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/${GITHUB_ACTOR}/${GITHUB_ACTOR}.github.io.git $GITHUB_WORKSPACE/public
-          hugo --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
-          cd $GITHUB_WORKSPACE/public
-          git add .
-          git commit -m "Update from $GITHUB_REPOSITORY@$COMMIT_SHA"
-          git push origin master
-
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
+      - name: Hugo
+        uses: crazy-max/ghaction-hugo@v1.3.3
         with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          repository: frenchvandal/frenchvandal.github.io
-          event-type: hugo_deploy
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          version: latest
+          extended: false
+          args: --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          personal_key: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          external_repository: frenchvandal/frenchvandal.github.io
+          publish_branch: master
+          publish_dir: ./public
