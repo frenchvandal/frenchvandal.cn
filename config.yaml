@@ -17,7 +17,7 @@ permalinks:
   pages: '/:filename/'
 
 params:
-  color: red
+  color: white
   width: 47rem
   description: Cool stories of my life
   footer: >-
