@@ -15,10 +15,4 @@ Hello World!
 
 Thanks to Hugo for providing blazing fast static site generation.
 
-Cloudfront:
-
 {{< image src="https://i.frenchvandal.cn/banner.webp" loading="lazy" alt="My banner Cloudfront" width="720" >}}
-
-Alibaba:
-
-{{< image src="https://y.frenchvandal.cn/banner.png?image_process=resize,w_720/format,webp" loading="lazy" alt="My banner Alibaba" width="720" >}}
