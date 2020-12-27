@@ -29,25 +29,12 @@ params:
   rss: >-
     To subscribe to this RSS feed, copy the address in the address bar and paste
     it into your favorite feed reader.
-  divider: '\2015\2015' # Set to false to remove divider below posts on homepage
+  divider: '\2015\2015'
   schema: true
   opengraph: true
   twittercards: true
   summaries: false
   enableEmoji: true
-  utterances:
-    repo:               # Set to Utterances repo URL to add Utterances comments
-    issueterm: pathname
-    theme: github-light
-  netlify:
-    honeypot: false     # Set to true to add honeypot field in contact form
-    recaptcha: false    # Set to true to add recaptcha challenge in contact form
-  # css:                # Uncomment to add custom CSS from a list of files
-  #   - css/foo.css
-  #   - bar.css
-  # js:                 # Uncomment to add custom JS from a list of files
-  #   - js/foo.js
-  #   - bar.js
 
 menu:
   nav:
