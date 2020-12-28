@@ -14,5 +14,3 @@ This is a first blog post.
 Hello World!
 
 Thanks to Hugo for providing blazing fast static site generation.
-
-{{< image src="https://i.frenchvandal.cn/banner.webp" loading="lazy" alt="My banner Cloudfront" width="720" >}}
