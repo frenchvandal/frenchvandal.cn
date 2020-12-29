@@ -49,3 +49,12 @@ jobs:
       - name: Copy artefacts
         run: |
           aws s3 sync $GITHUB_WORKSPACE/public/ s3://manlymusk
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+      - run: |
+           gsutil -h "Cache-Control:public,max-age=86400,must-revalidate" -m rsync -r -d -j css,html,js,svg,txt,webmanifest public gs://frenchvandal
+           gsutil -m setmeta -h "Content-Type: text/html; charset=utf-8" -h "Content-Language: en" gs://frenchvandal/**/*.html
