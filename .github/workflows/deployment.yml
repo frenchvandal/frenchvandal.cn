@@ -48,5 +48,4 @@ jobs:
 
       - name: Copy artefacts
         run: |
-          cd $GITHUB_WORKSPACE\public
-          aws s3 sync . s3://manlymusk
+          aws s3 sync $GITHUB_WORKSPACE/public/ s3://manlymusk
