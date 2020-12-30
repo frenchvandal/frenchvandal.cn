@@ -39,7 +39,7 @@ params:
 menu:
   nav:
     - name: About
-      url: about.html
+      url: about
       weight: 1
     - name: Archives
       url: archives
