@@ -39,14 +39,14 @@ params:
 menu:
   nav:
     - name: About
-      url: about
+      url: about/index.html
       weight: 1
     - name: Archives
-      url: archives
+      url: archives/index.html
       weight: 2
     - name: Tags
-      url: tags
+      url: tags/index.html
       weight: 3
     - name: Categories
-      url: categories
+      url: categories/index.html
       weight: 4
