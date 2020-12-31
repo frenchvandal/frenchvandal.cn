@@ -4,6 +4,7 @@ author: frenchvandal
 languageCode: en-us
 pygmentsCodeFences: true
 enableRobotsTXT: true
+uglyurls: true
 theme: hugo-flex
 publishDir: public
 enableGitInfo: true

@@ -4,7 +4,7 @@ on:
     branches: master
 
 env:
-  HUGO_VERSION: 0.79.1
+  HUGO_VERSION: 0.80.0
   HUGO_UGLYURLS: true
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
