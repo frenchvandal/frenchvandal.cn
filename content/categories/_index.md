@@ -1,6 +1,6 @@
 ---
-title: Tags
-url: /tags/
+title: Categories
+url: /categories/
 outputs:
   - html
 ---
