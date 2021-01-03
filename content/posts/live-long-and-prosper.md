@@ -3,7 +3,7 @@ title: Live long and prosper 🖖🏻
 date: 2020-05-06
 description: An example blog post.
 categories:
-- demo
+- test
 tags:
 - Hello World
 - Zatoichi
