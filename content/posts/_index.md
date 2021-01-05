@@ -1,6 +1,6 @@
 ---
 title: Archives
-url: /archives/
+url: /archives.html
 outputs:
   - html
 ---

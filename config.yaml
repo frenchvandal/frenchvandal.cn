@@ -44,11 +44,11 @@ menu:
       url: about.html
       weight: 1
     - name: Archives
-      url: archives/index.html
+      url: archives.html
       weight: 2
     - name: Tags
-      url: tags/index.html
+      url: tags.html
       weight: 3
     - name: Categories
-      url: categories/index.html
+      url: categories.html
       weight: 4

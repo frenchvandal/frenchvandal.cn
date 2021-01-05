@@ -1,6 +1,6 @@
 ---
 title: Tags
-url: /tags/index.html
+url: /tags.html
 outputs:
   - html
 ---
