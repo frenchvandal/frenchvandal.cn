@@ -33,7 +33,7 @@ jobs:
           args: --cleanDestinationDir --enableGitInfo --gc --minify --disableKinds RSS
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@master
+        uses: peaceiris/actions-gh-pages@main
         with:
           personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           external_repository: frenchvandal/frenchvandal.github.io
