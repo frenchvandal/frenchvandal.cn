@@ -51,7 +51,7 @@ jobs:
         run: |
           aws s3 sync $GITHUB_WORKSPACE/public/ s3://muskmanly
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      - uses: google-github-actions/setup-gcloud@master
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
