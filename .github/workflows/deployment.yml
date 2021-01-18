@@ -23,23 +23,19 @@ jobs:
       - uses: actions/cache@v2
         id: cache
         with:
-          path: /tmp/hugo/**
-          key: ${{ runner.os }}-hugo
+          path: $GITHUB_WORKSPACE/public/**
+          key: ${{ runner.os }}-hugo-${{ hashFiles('$GITHUB_WORKSPACE/public/index.html') }}
 
       - name: Test cache
         run: |
-          ls -l /tmp/hugo/
-          echo $HOME
-          ls $HOME
-          echo $GITHUB_WORKSPACE
-          ls $GITHUB_WORKSPACE
+          ls -l $GITHUB_WORKSPACE/public/
 
       - name: Hugo
         uses: crazy-max/ghaction-hugo@v1.3.3
         with:
           version: latest
           extended: false
-          args: --destination /tmp/hugo/ --minify --disableKinds RSS
+          args: --minify --disableKinds RSS
 
       - uses: google-github-actions/setup-gcloud@master
         with:
@@ -47,5 +43,5 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
       - run: |
-           gsutil -h "Cache-Control:public,max-age=86400,must-revalidate" -m rsync -r -d -j css,html,js,svg,txt,webmanifest /tmp/hugo/ gs://frenchvandal
+           gsutil -h "Cache-Control:public,max-age=86400,must-revalidate" -m rsync -r -d -j css,html,js,svg,txt,webmanifest public gs://frenchvandal
            gsutil -m setmeta -h "Content-Type: text/html; charset=utf-8" -h "Content-Language: en" gs://frenchvandal/**/*.html
