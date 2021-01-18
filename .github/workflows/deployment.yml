@@ -28,7 +28,7 @@ jobs:
 
       - name: Test cache
         run: |
-          ls /tmp/hugo/
+          ls -l /tmp/hugo/
 
       - name: Hugo
         uses: crazy-max/ghaction-hugo@v1.3.3
