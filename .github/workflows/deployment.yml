@@ -29,6 +29,10 @@ jobs:
       - name: Test cache
         run: |
           ls -l /tmp/hugo/
+          echo $HOME
+          ls $HOME
+          echo $GITHUB_WORKSPACE
+          ls $GITHUB_WORKSPACE
 
       - name: Hugo
         uses: crazy-max/ghaction-hugo@v1.3.3
