@@ -4,7 +4,6 @@ author: frenchvandal
 languageCode: en-us
 pygmentsCodeFences: true
 enableRobotsTXT: true
-uglyurls: true
 theme: hugo-flex
 publishDir: public
 enableGitInfo: true
@@ -22,7 +21,7 @@ params:
   width: 47rem
   description: Cool stories of my life
   footer: >-
-   &#32;<a href="/license.html" rel="license">&#32;<img alt="Creative Commons icon" src="/icons.svg#creativecommons" loading="lazy" height="48" width="48" /></a>
+   &#32;<a href="/license" rel="license">&#32;<img alt="Creative Commons icon" src="/icons.svg#creativecommons" loading="lazy" height="48" width="48" /></a>
    &#32;<a href="https://github.com/frenchvandal/">&#32;<img alt="GitHub icon" src="/icons.svg#github" loading="lazy" height="48" width="48" /></a>
    &#32;<a href="https://www.instagram.com/frenchvandal/">&#32;<img alt="Instagram icon" src="/icons.svg#instagram" loading="lazy" height="48" width="48" /></a>
    &#32;<a href="https://twitter.com/frenchvandal">&#32;<img alt="Twitter icon" src="/icons.svg#twitter" loading="lazy" height="48" width="48" /></a>
@@ -41,14 +40,14 @@ params:
 menu:
   nav:
     - name: About
-      url: about.html
+      url: about
       weight: 1
     - name: Archives
-      url: archives.html
+      url: archives
       weight: 2
     - name: Tags
-      url: tags.html
+      url: tags
       weight: 3
     - name: Categories
-      url: categories.html
+      url: categories
       weight: 4

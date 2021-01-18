@@ -1,6 +1,6 @@
 ---
 title: Categories
-url: /categories.html
+url: /categories/
 outputs:
   - html
 ---
