@@ -9,7 +9,7 @@ tags:
 - Zatoichi
 ---
 
-This is a first blog post.
+This is a first blog post, modified.
 
 Hello World!
 
