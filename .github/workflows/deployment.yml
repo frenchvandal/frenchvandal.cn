@@ -32,7 +32,8 @@ jobs:
           key: ${{ runner.os }}-hugo
 
       - name: Test cache
-        run: echo "Cache: ${{ steps.cache.outputs.cache-hit}}"
+        run: |
+          echo "Cache: ${{ steps.cache.outputs.cache-hit }}"
 
       - name: Hugo
         uses: crazy-max/ghaction-hugo@v1.3.3
