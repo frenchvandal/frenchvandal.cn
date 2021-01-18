@@ -24,11 +24,7 @@ jobs:
         id: cache
         with:
           path: $GITHUB_WORKSPACE/public/**
-          key: ${{ runner.os }}-hugo-${{ hashFiles('$GITHUB_WORKSPACE/public/index.html') }}
-
-      - name: Test cache
-        run: |
-          ls -l $GITHUB_WORKSPACE/public/
+          key: ${{ runner.os }}-public
 
       - name: Hugo
         uses: crazy-max/ghaction-hugo@v1.3.3
