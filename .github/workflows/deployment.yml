@@ -20,16 +20,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
 
-      - uses: actions/cache@v2
-        id: cache
-        with:
-          path: /tmp/hugo/**
-          key: ${{ runner.os }}-hugo
-
-      - name: Test cache
-        run: |
-          echo "Cache: ${{ steps.cache.outputs.cache-hit }}"
-
       - name: Hugo
         uses: crazy-max/ghaction-hugo@v1.3.3
         with:
@@ -42,6 +32,10 @@ jobs:
         with:
           path: /tmp/hugo/**
           key: ${{ runner.os }}-hugo
+
+      - name: Test cache
+        run: |
+          echo "Cache: ${{ steps.cachee.outputs.cache-hit }}"
 
       - uses: google-github-actions/setup-gcloud@master
         with:
