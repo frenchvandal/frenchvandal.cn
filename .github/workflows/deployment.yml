@@ -20,13 +20,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
 
-      - name: Hugo
-        uses: crazy-max/ghaction-hugo@v1.3.3
-        with:
-          version: latest
-          extended: false
-          args: --minify --disableKinds RSS
-
       - name: Ossutil
         uses: frenchvandal/setup-ossutil@v3.0
         with:
@@ -35,6 +28,15 @@ jobs:
           access-key-secret: "${{ secrets.OSS_ACCESS_KEY_SECRET }}"
           sts-token:
       - run: ossutil cp -rf oss://normcore/ $GITHUB_WORKSPACE/public/
+
+      - name: Hugo
+        uses: crazy-max/ghaction-hugo@v1.3.3
+        with:
+          version: latest
+          extended: false
+          args: --minify --disableKinds RSS
+
+      - run: ossutil cp -rf $GITHUB_WORKSPACE/public/ oss://normcore/ -u
 
       - uses: google-github-actions/setup-gcloud@master
         with:
