@@ -8,8 +8,8 @@ author: frenchvandal
 Hi my name is Jane Doe.
 I like to write in Julia like:
 
-```julia
-println("Hello world")
+```sql
+select * from dual;
 ```
 
 It's possible to process video motion data > 30 frames/sec with the Raspberry Pi Zero, using the GPU like.
