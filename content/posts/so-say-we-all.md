@@ -1,6 +1,6 @@
 ---
 title: So say we all ✊🏻
-date: 2021-01-19
+date: 2021-01-20
 description: Yet another example blog post.
 categories:
 - demo
@@ -9,4 +9,4 @@ tags:
 - Zatoichi
 ---
 
-This is a test for Aliyun CLI setup action.
+This is a test for Aliyun CLI CDN action.
