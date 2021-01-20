@@ -32,3 +32,4 @@ jobs:
       - run: |
           aliyun oss cp $GITHUB_WORKSPACE/public/ oss://normcore/ -r -f -u --parallel 5
           aliyun cdn RefreshObjectCaches --ObjectType Directory --ObjectPath https://frenchvandal.cn/
+          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/
