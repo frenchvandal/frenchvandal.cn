@@ -27,7 +27,9 @@ jobs:
           access-key-id: "${{ secrets.OSS_ACCESS_KEY_ID }}"
           access-key-secret: "${{ secrets.OSS_ACCESS_KEY_SECRET }}"
           sts-token:
-      - run: ossutil cp -rf oss://normcore/ $GITHUB_WORKSPACE/public/
+      - run: |
+          ossutil cp -rf oss://normcore/ $GITHUB_WORKSPACE/public/
+          ls -l $GITHUB_WORKSPACE/public/
 
       - name: Hugo
         uses: crazy-max/ghaction-hugo@v1.3.3
@@ -36,7 +38,9 @@ jobs:
           extended: false
           args: --minify --disableKinds RSS
 
-      - run: ossutil cp -rf $GITHUB_WORKSPACE/public/ oss://normcore/ -u
+      - run: |
+          ossutil cp -rf $GITHUB_WORKSPACE/public/ oss://normcore/ -u
+          ls -l $GITHUB_WORKSPACE/public/
 
       - uses: google-github-actions/setup-gcloud@master
         with:
