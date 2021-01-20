@@ -11,6 +11,8 @@ tags:
 
 This is a blog post.
 
-Hello World! LOL
+Hello World!
 
 Thanks to Hugo for providing blazing fast static site generation.
+
+Good bye World!

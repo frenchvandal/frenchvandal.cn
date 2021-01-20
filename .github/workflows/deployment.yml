@@ -8,28 +8,11 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Check GitHub Status
-        uses: crazy-max/ghaction-github-status@v2.1.0
-        with:
-          overall_threshold: critical
-          pages_threshold: major_outage
-
       - name: Checkout
         uses: actions/checkout@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           submodules: true
-
-      - name: Ossutil
-        uses: frenchvandal/setup-ossutil@v3.0
-        with:
-          endpoint: "oss-eu-west-1.aliyuncs.com"
-          access-key-id: "${{ secrets.OSS_ACCESS_KEY_ID }}"
-          access-key-secret: "${{ secrets.OSS_ACCESS_KEY_SECRET }}"
-          sts-token:
-      - run: |
-          ossutil cp -rf oss://normcore/ $GITHUB_WORKSPACE/public/
-          ls -l $GITHUB_WORKSPACE/public/
 
       - name: Hugo
         uses: crazy-max/ghaction-hugo@v1.3.3
@@ -38,24 +21,11 @@ jobs:
           extended: false
           args: --minify --disableKinds RSS
 
-      - run: |
-          ossutil cp -rf $GITHUB_WORKSPACE/public/ oss://normcore/ -u
-          ls -l $GITHUB_WORKSPACE/public/
-
-      - uses: google-github-actions/setup-gcloud@master
+      - name: Ossutil
+        uses: frenchvandal/setup-ossutil@v3.0
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
-      - run: |
-           gsutil -h "Cache-Control:public,max-age=86400,must-revalidate" -m rsync -r -d -j css,html,js,svg,txt,webmanifest public gs://frenchvandal
-           gsutil -m setmeta -h "Content-Type: text/html; charset=utf-8" -h "Content-Language: en" gs://frenchvandal/**/*.html
-
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FRENCH_VANDAL }}'
-          channelId: live
-          projectId: french-vandal
-        env:
-          FIREBASE_CLI_PREVIEWS: hostingchannels
+          endpoint: "oss-eu-west-1.aliyuncs.com"
+          access-key-id: "${{ secrets.OSS_ACCESS_KEY_ID }}"
+          access-key-secret: "${{ secrets.OSS_ACCESS_KEY_SECRET }}"
+          sts-token:
+      - run:  ossutil cp -rf $GITHUB_WORKSPACE/public/ oss://normcore/ -u
