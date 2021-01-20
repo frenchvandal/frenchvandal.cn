@@ -21,11 +21,15 @@ jobs:
           extended: false
           args: --minify --disableKinds RSS
 
-      - name: Ossutil
-        uses: frenchvandal/setup-ossutil@v3.0
+      - name: Aliyuncli
+        uses: jerray/setup-aliyun-cli-action@master
         with:
-          endpoint: "oss-eu-west-1.aliyuncs.com"
-          access-key-id: "${{ secrets.OSS_ACCESS_KEY_ID }}"
-          access-key-secret: "${{ secrets.OSS_ACCESS_KEY_SECRET }}"
-          sts-token:
-      - run:  ossutil cp -rf $GITHUB_WORKSPACE/public/ oss://normcore/ -u
+          aliyun-cli-version: '3.0.66'
+          mode: AK
+          region: ${{ secrets.OSS_REGION }}
+          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+      - run: |
+          aliyun oss cp -rf $GITHUB_WORKSPACE/public/ oss://normcore/ -u
+          aliyun cdn RefreshObjectCaches --ObjectType Directory --ObjectPath https://frenchvandal.cn/
+          aliyuncli cdn PushObjectCache --ObjectPath https://frenchvandal.cn/ --ObjectType Directory

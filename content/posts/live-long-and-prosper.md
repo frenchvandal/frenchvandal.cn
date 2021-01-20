@@ -1,6 +1,6 @@
 ---
 title: Live long and prosper 🖖🏻
-date: 2021-01-20
+date: 2020-01-20
 description: An example blog post.
 categories:
 - test
