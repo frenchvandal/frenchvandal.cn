@@ -30,16 +30,15 @@ jobs:
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
       - run: |
-          aliyun oss cp $GITHUB_WORKSPACE/public/ oss://normcore/ -r -f -u --parallel 5
+          aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u --parallel 5
           aliyun cdn RefreshObjectCaches --ObjectType Directory --ObjectPath https://frenchvandal.cn/
           aliyun cdn RefreshObjectCaches --ObjectType Directory --ObjectPath https://frenchvandal.cn/about/
           aliyun cdn RefreshObjectCaches --ObjectType Directory --ObjectPath https://frenchvandal.cn/archives/
           aliyun cdn RefreshObjectCaches --ObjectType Directory --ObjectPath https://frenchvandal.cn/css/
           aliyun cdn RefreshObjectCaches --ObjectType Directory --ObjectPath https://frenchvandal.cn/pages/
           aliyun cdn RefreshObjectCaches --ObjectType Directory --ObjectPath https://frenchvandal.cn/tags/
-          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/
-          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/about/
-          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/archives/
-          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/css/
-          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/pages/
-          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/tags/
+          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/index.html
+          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/about/index.html
+          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/archives/index.html
+          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/pages/index.html
+          aliyun cdn PushObjectCache --ObjectPath https://frenchvandal.cn/tags/index.html
