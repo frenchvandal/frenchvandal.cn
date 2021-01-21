@@ -6,7 +6,7 @@ author: frenchvandal
 ---
 
 Hi my name is Jane Doe.
-I like to write in Julia like:
+I like to write in SQL like:
 
 ```sql
 select * from dual;
