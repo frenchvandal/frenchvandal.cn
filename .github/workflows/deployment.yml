@@ -17,7 +17,7 @@ jobs:
         uses: frenchvandal/ghaction-hugo@v1.3.4
         with:
           version: v0.80.0
-          extended: false
+          extended: true
           args: --minify --disableKinds RSS
 
       - name: Aliyuncli
