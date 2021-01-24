@@ -16,7 +16,7 @@ jobs:
       - name: Hugo
         uses: frenchvandal/ghaction-hugo@v1.3.3
         with:
-          version: 0.80.0
+          version: v0.80.0
           extended: false
           args: --minify --disableKinds RSS
 
