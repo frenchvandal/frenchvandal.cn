@@ -17,30 +17,27 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cache Hugo
+        id: cache-hugo
         uses: actions/cache@v2
         env:
           cache-name: cache-hugo
         with:
-          path: /usr/bin/hugo
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-v${{ env.HUGO_VERSION }}
+          path: /usr/local/bin/hugo
+          key: ${{ runner.os }}-${{ env.cache-name }}-v${{ env.HUGO_VERSION }}
 
       - name: Install Hugo
+        if: steps.cache-hugo.outputs.cache-hit != 'true'
         run: |
           wget -q $GITHUB_SERVER_URL/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb -P ~
           sudo apt-get -qq install ~/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb > /dev/null
-          which hugo
 
-      - name: Hugo
-        uses: crazy-max/ghaction-hugo@v1.3.3
-        with:
-          version: v${{ env.HUGO_VERSION }}
-          extended: false
-          args: --minify --disableKinds RSS
+      - name: Run Hugo
+        run: hugo --minify --disableKinds RSS
 
       - name: Aliyuncli
         uses: jerray/setup-aliyun-cli-action@master
         with:
-          aliyun-cli-version: v3.0.66
+          aliyun-cli-version: '3.0.66'
           mode: AK
           region: ${{ secrets.OSS_REGION }}
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
