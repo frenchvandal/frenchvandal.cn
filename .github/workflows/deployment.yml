@@ -27,7 +27,7 @@ jobs:
       - name: Install Hugo
         run: |
           wget -q $GITHUB_SERVER_URL/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb -P ~
-          sudo apt-get -qq install ~/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb > /dev/
+          sudo apt-get -qq install ~/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.deb > /dev/null
           which hugo
 
       - name: Hugo
