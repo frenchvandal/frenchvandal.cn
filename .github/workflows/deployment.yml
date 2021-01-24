@@ -34,7 +34,7 @@ jobs:
       - name: Run Hugo
         run: hugo --minify --disableKinds RSS
 
-      - name: Aliyuncli
+      - name: Aliyun CLI
         uses: jerray/setup-aliyun-cli-action@master
         with:
           aliyun-cli-version: '3.0.66'
