@@ -14,9 +14,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Hugo
-        uses: frenchvandal/ghaction-hugo@v1.3.4
+        uses: frenchvandal/ghaction-hugo@v1.3.3
         with:
-          version: v0.80.0
+          version: latest
           extended: false
           args: --minify --disableKinds RSS
 
