@@ -17,13 +17,13 @@ jobs:
         uses: frenchvandal/ghaction-hugo@v1.3.4
         with:
           version: v0.80.0
-          extended: true
+          extended: false
           args: --minify --disableKinds RSS
 
       - name: Aliyuncli
         uses: jerray/setup-aliyun-cli-action@master
         with:
-          aliyun-cli-version: '3.0.66'
+          aliyun-cli-version: '3.0.67'
           mode: AK
           region: ${{ secrets.OSS_REGION }}
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
