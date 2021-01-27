@@ -13,14 +13,14 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Hugo
+      - name: Set up Hugo
         uses: frenchvandal/ghaction-hugo@v1.3.3
         with:
           version: v0.80.0
           extended: false
           args: --minify --disableKinds RSS
 
-      - name: Aliyuncli
+      - name: Set up Aliyun CLI
         uses: jerray/setup-aliyun-cli-action@master
         with:
           aliyun-cli-version: 3.0.69
@@ -28,7 +28,6 @@ jobs:
           region: ${{ secrets.OSS_REGION }}
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-      - run: |
-          ls -Rd $GITHUB_WORKSPACE/public/*
-          aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10 --loglevel info
-          cat $GITHUB_WORKSPACE/ossutil.log
+      
+      - name: Upload Hugo artifacts to OSS bucket
+      - run: aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
