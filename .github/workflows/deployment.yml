@@ -22,17 +22,9 @@ jobs:
 
       - name: Test
         run: |
+          aliyun update
           aliyun configure set --mode AK --region ${{ secrets.OSS_REGION }} --access-key-id ${{ secrets.OSS_ACCESS_KEY_ID }} --access-key-secret ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
-
-      - name: Set up Aliyun CLI
-        uses: jerray/setup-aliyun-cli-action@master
-        with:
-          aliyun-cli-version: 3.0.69
-          mode: AK
-          region: ${{ secrets.OSS_REGION }}
-          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
-          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
       - name: Upload Hugo artifacts to OSS bucket
         run: aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
