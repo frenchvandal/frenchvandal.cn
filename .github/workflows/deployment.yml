@@ -30,4 +30,6 @@ jobs:
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
       
       - name: Upload Hugo artifacts to OSS bucket
-        run: aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
+        run: |
+          aliyun oss sync ./public/ oss://${{ secrets.OSS_BUCKET }}/
+          aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
