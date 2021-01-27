@@ -23,7 +23,7 @@ jobs:
       - name: Aliyuncli
         uses: jerray/setup-aliyun-cli-action@master
         with:
-          aliyun-cli-version: 3.0.66
+          aliyun-cli-version: 3.0.69
           mode: AK
           region: ${{ secrets.OSS_REGION }}
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
