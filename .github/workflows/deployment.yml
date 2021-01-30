@@ -17,6 +17,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2.4.13
         with:
           hugo-version: 0.80.0
+        run: hugo 
 
       - name: Set up Hugo
         uses: frenchvandal/ghaction-hugo@v1.3.3
