@@ -23,7 +23,7 @@ jobs:
       - name: Set up Hugo
         uses: frenchvandal/ghaction-hugo@v1.3.3
         with:
-          version: v0.80.0
+          version: latest
           extended: false
           args: --minify --disableKinds RSS
 
@@ -31,3 +31,24 @@ jobs:
         run: |
           aliyun configure set --mode AK --region ${{ secrets.OSS_REGION }} --access-key-id ${{ secrets.OSS_ACCESS_KEY_ID }} --access-key-secret ${{ secrets.OSS_ACCESS_KEY_SECRET }} --language zh
           aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
+
+      - name: Upload Hugo artifacts to OSS bucket    
+        uses: tvrcgo/upload-to-oss@v0.1.1
+        with:
+          key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          region: ${{ secrets.OSS_REGION }}
+          bucket: ${{ secrets.OSS_BUCKET }}
+          asset-path: ./public
+          target-path: /
+
+      - name: Upload to oss
+        id: upload_to_oss
+        uses: yinlinyang/ali-oss-utils@1.0.10
+        with:
+          access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          region: ${{ secrets.OSS_REGION }}
+          bucket: ${{ secrets.OSS_BUCKET }}
+          source: ./oublic
+          target: /
