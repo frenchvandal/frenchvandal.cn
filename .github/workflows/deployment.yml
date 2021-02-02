@@ -32,16 +32,6 @@ jobs:
           aliyun configure set --mode AK --region ${{ secrets.OSS_REGION }} --access-key-id ${{ secrets.OSS_ACCESS_KEY_ID }} --access-key-secret ${{ secrets.OSS_ACCESS_KEY_SECRET }} --language zh
           aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
 
-      - name: Upload Hugo artifacts to OSS bucket    
-        uses: tvrcgo/upload-to-oss@v0.1.1
-        with:
-          key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
-          key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-          region: ${{ secrets.OSS_REGION }}
-          bucket: ${{ secrets.OSS_BUCKET }}
-          asset-path: ./public
-          target-path: /
-
       - name: Upload to oss
         id: upload_to_oss
         uses: yinlinyang/ali-oss-utils@v1.0.10
@@ -50,5 +40,5 @@ jobs:
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           region: ${{ secrets.OSS_REGION }}
           bucket: ${{ secrets.OSS_BUCKET }}
-          source: ./oublic
+          source: ./public
           target: /
