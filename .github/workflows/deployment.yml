@@ -40,4 +40,4 @@ jobs:
           region: ${{ secrets.OSS_REGION }}
           bucket: ${{ secrets.OSS_BUCKET }}
           source: ./public
-          target: /
+          target: 
