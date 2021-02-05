@@ -33,7 +33,6 @@ jobs:
           aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
 
       - name: Upload to oss
-        id: upload_to_oss
         uses: yinlinyang/ali-oss-utils@v1.0.10
         with:
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
