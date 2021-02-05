@@ -33,11 +33,11 @@ jobs:
           aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
 
       - name: Upload to oss
-        uses: yinlinyang/ali-oss-utils@v1.0.10
+        uses: yinlinyang/ali-oss-utils@master
         with:
           access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           region: ${{ secrets.OSS_REGION }}
           bucket: ${{ secrets.OSS_BUCKET }}
           source: ./public
-          target: 
+          target:
