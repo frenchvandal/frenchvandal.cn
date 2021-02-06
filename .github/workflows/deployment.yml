@@ -21,7 +21,7 @@ jobs:
         run: hugo
 
       - name: Set up Hugo
-        uses: frenchvandal/ghaction-hugo@v1.3.3
+        uses: frenchvandal/ghaction-hugo@master
         with:
           version: latest
           extended: false
