@@ -13,22 +13,12 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2.4.13
-        with:
-          hugo-version: 0.80.0
-      - name: Create Hugo artefacts
-        run: hugo
-
       - name: Set up Hugo
         uses: frenchvandal/ghaction-hugo@master
         with:
           version: latest
           extended: false
           args: --minify --disableKinds RSS
-      - run: |
-          hugo --minify --disableKinds RSS
-          ls -lR $PWD/*
 
       - name: Upload Hugo artifacts to OSS bucket
         run: |
