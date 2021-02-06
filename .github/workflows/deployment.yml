@@ -26,7 +26,9 @@ jobs:
           version: latest
           extended: false
           args: --minify --disableKinds RSS
-      - run: /opt/hostedtoolcache/ghaction-hugo/0.80.0/x64/hugo --minify --disableKinds RSS
+      - run: |
+          /opt/hostedtoolcache/ghaction-hugo/0.80.0/x64/hugo --minify --disableKinds RSS
+          ls -ld $PWD/*
 
       - name: Upload Hugo artifacts to OSS bucket
         run: |
