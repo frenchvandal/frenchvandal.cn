@@ -13,7 +13,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run Hugo
+      - name: Execute Hugo
         uses: frenchvandal/ghaction-hugo@master
         with:
           version: latest
