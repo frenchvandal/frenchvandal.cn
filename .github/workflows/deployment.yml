@@ -20,7 +20,7 @@ jobs:
           extended: false
           args: --minify --disableKinds RSS
 
-      - name: Aliyun OSS 
+      - name: Aliyun OSS
         run: |
           aliyun configure set --mode AK --region ${{ secrets.OSS_REGION }} --access-key-id ${{ secrets.OSS_ACCESS_KEY_ID }} --access-key-secret ${{ secrets.OSS_ACCESS_KEY_SECRET }} --language zh
           aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
