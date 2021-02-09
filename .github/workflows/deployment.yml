@@ -23,5 +23,5 @@ jobs:
           extended: false
           args: --minify --disableKinds RSS
 
-      - name: Aliyun OSS 
+      - name: Aliyun OSS
         run: aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
