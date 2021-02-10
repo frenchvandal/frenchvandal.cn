@@ -25,5 +25,5 @@ jobs:
 
       - name: Aliyun OSS
         run: |
-          echo $GIT_HTTP_USER_AGENT
+          echo ${GIT_HTTP_USER_AGENT}
           aliyun oss cp ./public/ oss://${{ secrets.OSS_BUCKET }}/ -r -f -u -j 10
