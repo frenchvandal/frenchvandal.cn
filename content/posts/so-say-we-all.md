@@ -9,4 +9,4 @@ tags:
 - Zatoichi
 ---
 
-This is a test for Aliyun CLI CDN action.
+This is a test for Aliyun OSS action.
