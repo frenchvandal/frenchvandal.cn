@@ -14,11 +14,15 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Hugo
-        uses: frenchvandal/ghaction-hugo@master
+        uses: crazy-max/ghaction-hugo@v1.3.3
         with:
           version: latest
           extended: false
           args: --minify --disableKinds RSS --verbose --verboseLog
+          
+      - name: Upload to OSS bucket
+        uses: frenchvandal/action-oss-upload@master
+        with:
           bucket: ${{ secrets.OSS_BUCKET }}
           region: ${{ secrets.OSS_REGION }}
           accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
