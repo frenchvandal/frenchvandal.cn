@@ -19,6 +19,7 @@ jobs:
       - name: Hugo
         uses: frenchvandal/ghaction-hugo@master
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
           extended: false
           args: --minify --disableKinds RSS --verbose --verboseLog
