@@ -2,6 +2,9 @@ name: Deploy Hugo on Aliyun OSS
 on:
   push:
     branches: master
+    paths:
+      - 'content/**'
+      - 'static/**'
 
 jobs:
   build:
