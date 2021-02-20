@@ -11,7 +11,7 @@ tags:
 
 This is a test for Aliyun OSS action.
 
-OK.
+OK boomer.
 
 Cool.
 
