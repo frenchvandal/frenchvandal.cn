@@ -6,6 +6,8 @@ on:
       - 'content/**'
       - 'static/**'
       - '.github/workflows/deployment.xml'
+  env:
+      - GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build:
@@ -20,7 +22,6 @@ jobs:
       - name: Hugo
         uses: frenchvandal/ghaction-hugo@master
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           version: latest
           extended: false
           args: --minify --disableKinds RSS --verbose --verboseLog
