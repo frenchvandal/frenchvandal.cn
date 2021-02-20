@@ -15,6 +15,6 @@ Hello World!
 
 Thanks to Hugo for providing blazing fast static site generation.
 
-Thanks to you, visitor.
+Thanks to you.
 
 Good bye World!
