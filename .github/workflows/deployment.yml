@@ -5,6 +5,7 @@ on:
     paths:
       - 'content/**'
       - 'static/**'
+      - '.github/workflows/deployment.xml'
 
 jobs:
   build:
