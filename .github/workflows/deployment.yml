@@ -24,7 +24,7 @@ jobs:
           extended: true
           args: --minify --disableKinds RSS --verbose --verboseLog
 
-      - name: Run Hugo test
+      - name: Run Hugo test d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: frenchvandal/action-hugo@master
