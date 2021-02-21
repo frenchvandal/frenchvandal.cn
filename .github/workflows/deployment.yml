@@ -23,7 +23,7 @@ jobs:
         uses: frenchvandal/ghaction-hugo@master
         with:
           version: latest
-          extended: false
+          extended: true
           args: --minify --disableKinds RSS --verbose --verboseLog
 
       - name: Upload to OSS bucket
