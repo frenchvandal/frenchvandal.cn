@@ -19,11 +19,19 @@ jobs:
 
       - name: Run Hugo
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        uses: frenchvandal/ghaction-hugo@master
+        uses: crazy-max/ghaction-hugo@v1.3.3
         with:
           version: latest
           extended: true
+          args: --minify --disableKinds RSS --verbose --verboseLog
+
+      - name: Run Hugo test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: frenchvandal/action-hugo@master
+        with:
+          version: latest
+          extended: false
           args: --minify --disableKinds RSS --verbose --verboseLog
 
       - name: Upload to OSS bucket
