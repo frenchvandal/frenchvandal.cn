@@ -5,9 +5,7 @@ on:
     paths:
       - 'content/**'
       - 'static/**'
-      - '.github/workflows/deployment.xml'
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - '.github/workflows/deployment.yml'
 
 jobs:
   build:
@@ -19,7 +17,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Hugo
+      - name: Run Hugo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: frenchvandal/ghaction-hugo@master
         with:
           version: latest
