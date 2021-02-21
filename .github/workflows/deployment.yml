@@ -18,7 +18,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Hugo
-        env:
         uses: crazy-max/ghaction-hugo@v1.3.3
         with:
           version: latest
