@@ -21,7 +21,7 @@ jobs:
         uses: crazy-max/ghaction-hugo@v1.3.3
         with:
           version: latest
-          extended: true
+          extended: false
           args: --minify --disableKinds RSS --verbose --verboseLog
 
       - name: Run Hugo test d
@@ -30,7 +30,7 @@ jobs:
         uses: frenchvandal/action-hugo@master
         with:
           version: latest
-          extended: false
+          extended: true
           args: --minify --disableKinds RSS --verbose --verboseLog
 
       - name: Upload to OSS bucket
