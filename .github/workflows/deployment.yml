@@ -31,7 +31,7 @@ jobs:
         with:
           version: latest
           extended: false
-          args: --minify --disableKinds RSS --verbose --verboseLog
+          args: --cleanDestinationDir --minify --disableKinds RSS
 
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
