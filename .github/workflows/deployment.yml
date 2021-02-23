@@ -17,13 +17,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run Hugo
-        uses: crazy-max/ghaction-hugo@v1.3.3
-        with:
-          version: latest
-          extended: false
-          args: --minify --disableKinds RSS --verbose --verboseLog
-
       - name: Run Hugo test d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
