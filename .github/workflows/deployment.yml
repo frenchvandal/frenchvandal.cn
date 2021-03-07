@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Checkout
@@ -17,7 +17,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Insant & Run Hugo
+      - name: Install & Run Hugo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: frenchvandal/action-hugo@master
@@ -25,3 +25,12 @@ jobs:
           version: latest
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
+
+      - name: Upload to OSS bucket
+        uses: frenchvandal/action-oss-upload@master
+        with:
+          bucket: ${{ secrets.OSS_BUCKET }}
+          region: ${{ secrets.OSS_REGION }}
+          accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          source: public
