@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: macOS-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
@@ -25,12 +25,3 @@ jobs:
           version: latest
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
-
-      - name: Upload to OSS bucket
-        uses: frenchvandal/action-oss-upload@master
-        with:
-          bucket: ${{ secrets.OSS_BUCKET }}
-          region: ${{ secrets.OSS_REGION }}
-          accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
-          accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-          source: public
