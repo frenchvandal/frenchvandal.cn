@@ -34,3 +34,5 @@ jobs:
           accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           source: public
+
+      - run: printenv
