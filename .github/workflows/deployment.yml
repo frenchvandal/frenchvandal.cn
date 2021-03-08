@@ -17,11 +17,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.81.0'
-
       - name: Install & Run Hugo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -29,7 +24,7 @@ jobs:
         with:
           version: latest
           extended: false
-          args: --cleanDestinationDir --minify --disableKinds RSS
+          args: version
 
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
