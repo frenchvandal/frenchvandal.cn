@@ -17,7 +17,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install & Run Hugo
+      - name: Install and Run Hugo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: frenchvandal/action-hugo@master
