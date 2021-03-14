@@ -23,7 +23,7 @@ jobs:
         uses: frenchvandal/action-hugo@master
         with:
           version: latest
-          extended: true
+          extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
 
       - name: Upload to OSS bucket
