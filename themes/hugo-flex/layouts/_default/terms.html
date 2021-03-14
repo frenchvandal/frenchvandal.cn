@@ -1,15 +1,11 @@
-{{ define "main" }}
+{{ define "main" }} {{ partial "heading.html" . }} {{ .Content }}
 
-  {{ partial "heading.html" . }}
-
-  {{ .Content }}
-
-  <ul class="Tags">
-    {{ range .Pages }}
-      <li class="Tags-item u-background">
-        <a class="Tags-link u-clickable" href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </li>
-    {{ end }}
-  </ul>
+<ul class="Tags">
+  {{ range .Pages }}
+  <li class="Tags-item u-background">
+    <a class="Tags-link u-clickable" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
 
 {{ end }}

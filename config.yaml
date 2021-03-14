@@ -1,4 +1,4 @@
-baseURL: 'https://frenchvandal.com'
+baseURL: "https://frenchvandal.com"
 title: Miscellanies
 author: frenchvandal
 languageCode: en-us
@@ -13,20 +13,20 @@ copyright: >
   4.0 International License (https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
 permalinks:
-  posts: '/:filename/'
-  pages: '/:filename/'
+  posts: "/:filename/"
+  pages: "/:filename/"
 
 params:
   color: rgb(18,18,18)
   width: 47rem
   description: Cool stories of my life
   footer: >-
-   &#32;<a href="/license" rel="license">&#32;<img alt="Creative Commons icon" src="/icons.svg#creativecommons" loading="lazy" height="48" width="48" /></a>
-   &#32;<a href="https://github.com/frenchvandal/">&#32;<img alt="GitHub icon" src="/icons.svg#github" loading="lazy" height="48" width="48" /></a>
-   &#32;<a href="https://www.instagram.com/frenchvandal/">&#32;<img alt="Instagram icon" src="/icons.svg#instagram" loading="lazy" height="48" width="48" /></a>
-   &#32;<a href="https://twitter.com/frenchvandal">&#32;<img alt="Twitter icon" src="/icons.svg#twitter" loading="lazy" height="48" width="48" /></a>
-   &#32;<a href="https://keybase.io/frenchvandal">&#32;<img alt="Keybase icon" src="/icons.svg#keybase" loading="lazy" height="48" width="48" /></a>
-   &#32;<a href="https://telegram.me/frenchvandal">&#32;<img alt="Telegram icon" src="/icons.svg#telegram" loading="lazy" height="48" width="48" /></a>
+    &#32;<a href="/license" rel="license">&#32;<img alt="Creative Commons icon" src="/icons.svg#creativecommons" loading="lazy" height="48" width="48" /></a>
+    &#32;<a href="https://github.com/frenchvandal/">&#32;<img alt="GitHub icon" src="/icons.svg#github" loading="lazy" height="48" width="48" /></a>
+    &#32;<a href="https://www.instagram.com/frenchvandal/">&#32;<img alt="Instagram icon" src="/icons.svg#instagram" loading="lazy" height="48" width="48" /></a>
+    &#32;<a href="https://twitter.com/frenchvandal">&#32;<img alt="Twitter icon" src="/icons.svg#twitter" loading="lazy" height="48" width="48" /></a>
+    &#32;<a href="https://keybase.io/frenchvandal">&#32;<img alt="Keybase icon" src="/icons.svg#keybase" loading="lazy" height="48" width="48" /></a>
+    &#32;<a href="https://telegram.me/frenchvandal">&#32;<img alt="Telegram icon" src="/icons.svg#telegram" loading="lazy" height="48" width="48" /></a>
   rss: >-
     To subscribe to this RSS feed, copy the address in the address bar and paste
     it into your favorite feed reader.
