@@ -22,7 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: frenchvandal/action-hugo@master
         with:
-          version: v0.78.2
+          version: latest
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
 
