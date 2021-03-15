@@ -5,11 +5,6 @@ date: 2019-02-28
 author: frenchvandal
 ---
 Hi my name is John Doe.
-I like to write in SQL like:
-
-```sql
-select * from dual;
-```
 
 It's possible to process video motion data > 30 frames/sec with the Raspberry Pi Zero, using the GPU like.
 
