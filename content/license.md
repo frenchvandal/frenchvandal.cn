@@ -21,3 +21,5 @@ Except where otherwise noted, the written content of this site is published unde
 
   0. You just DO WHAT THE FUCK YOU WANT TO.
 ```
+
+Enjoy!
