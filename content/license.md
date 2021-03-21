@@ -6,7 +6,7 @@ author: frenchvandal
 
 Except where otherwise noted, the written content of this site is published under the terms of the WTFPL license:
 
-```
+```plaintext
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                     Version 2, December 2004
 
