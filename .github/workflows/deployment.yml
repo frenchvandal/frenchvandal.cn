@@ -27,7 +27,7 @@ jobs:
           args: --cleanDestinationDir --minify --disableKinds RSS
       
       - name: check Hugo cache
-        run: ls /tmp/hugo_cache
+        run: ls -lR /tmp/hugo_cache
 
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
