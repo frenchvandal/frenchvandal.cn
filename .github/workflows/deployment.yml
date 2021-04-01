@@ -18,16 +18,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install & Run Hugo
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: frenchvandal/action-hugo@master
         with:
           version: latest
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
-      
-      - name: check Hugo cache
-        run: ls -lR /tmp/hugo_cache
 
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
