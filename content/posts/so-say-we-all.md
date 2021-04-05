@@ -9,22 +9,14 @@ tags:
   - Zatoichi
 ---
 
-## Welcome message
-
-### How are you?
-
 Hello world!
 We will output Markdown to:
 
 - HTML
 - docx
 - PDF
-  Link to [Google](https://frenchvandal.cn/)
-
-## Last goodbye
+  Link to [here](https://frenchvandal.cn/)
 
 yo?!
-
-### How are you
 
 GOGOGO
