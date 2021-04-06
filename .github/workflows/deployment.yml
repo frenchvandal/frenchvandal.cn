@@ -23,6 +23,8 @@ jobs:
           version: latest
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
+      
+      - run: npm root -g
 
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
