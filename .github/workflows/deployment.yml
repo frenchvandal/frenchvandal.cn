@@ -25,8 +25,8 @@ jobs:
           args: --cleanDestinationDir --minify --disableKinds RSS
       
       - run: |
+          npm -v
           npm root -g
-          npm install -g gatsby-cli
 
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
