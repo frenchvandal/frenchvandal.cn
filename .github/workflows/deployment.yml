@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
@@ -23,7 +23,7 @@ jobs:
           version: latest
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
-
+   
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
         with:
