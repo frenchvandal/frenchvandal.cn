@@ -20,7 +20,7 @@ jobs:
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
-          version: latest
+          version: v0.76.1
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
    
