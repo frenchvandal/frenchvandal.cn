@@ -20,10 +20,10 @@ jobs:
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
-          version: v0.76.1
+          version: latest
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
-   
+
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
         with:
