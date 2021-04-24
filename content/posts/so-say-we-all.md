@@ -1,6 +1,6 @@
 ---
 title: So say we all ✊🏻
-date: 2021-01-20
+date: 2021-01-21
 description: Yet another example blog post.
 categories:
   - demo
