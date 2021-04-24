@@ -1,3 +1,7 @@
 {
-  "recommendations": ["davidanson.vscode-markdownlint"]
+  "recommendations": [
+    "davidanson.vscode-markdownlint",
+    "eliostruyf.vscode-front-matter",
+    "budparr.language-hugo-vscode"
+  ]
 }
