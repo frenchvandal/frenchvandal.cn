@@ -1,5 +1,5 @@
 ---
-title: To boldly go 🤣
+title: To boldly go ☝🏻
 date: 2021-04-21
 description: Yet another example blog post.
 categories:
