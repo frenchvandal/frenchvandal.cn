@@ -1,5 +1,6 @@
 name: Deploy Hugo on Aliyun OSS
 on:
+  workflow_dispatch:
   push:
     branches: master
     paths:
