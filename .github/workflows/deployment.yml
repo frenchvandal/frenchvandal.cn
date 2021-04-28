@@ -1,10 +1,12 @@
 name: Deploy Hugo on Aliyun OSS
-on: [push, workflow_dispatch]
-  branches: master
-  paths:
-    - "content/**"
-    - "static/**"
-    - ".github/workflows/deployment.yml"
+on:
+  workflow_dispatch:
+  push:
+    branches: master
+    paths:
+      - "content/**"
+      - "static/**"
+      - ".github/workflows/deployment.yml"
 
 jobs:
   build:
