@@ -33,3 +33,12 @@ jobs:
           accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           source: public
+
+      - name: refresh CDN
+        uses: frenchvandal/action-aliyun-cdn-refresh@master
+        with:
+          endpoint: ${{ secrets.OSS_ENDPOINT }}
+          accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          cdnDomain: https://frenchvandal.cn
+          source: public
