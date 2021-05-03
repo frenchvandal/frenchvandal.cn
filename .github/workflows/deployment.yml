@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: ubuntu-20.04
 
     steps:
       - name: Checkout
@@ -35,4 +35,9 @@ jobs:
           source: public
 
       - name: refresh CDN
-        run: aliyun help
+        uses: frenchvandal/action-aliyun-cdn-refresh@master
+        with:
+          accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          cdnDomain: https://frenchvandal.cn
+          source: public
