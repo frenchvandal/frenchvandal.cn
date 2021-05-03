@@ -40,5 +40,5 @@ jobs:
           endpoint: ${{ secrets.OSS_ENDPOINT }}
           accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-          cdnDomain: "https://frenchvandal.cn"
+          cdnDomain: "frenchvandal.cn"
           source: public
