@@ -21,20 +21,20 @@ jobs:
           version: latest
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
-      # - name: Upload to OSS bucket
-      #   uses: frenchvandal/action-oss-upload@master
-      #   with:
-      #     bucket: ${{ secrets.OSS_BUCKET }}
-      #     region: ${{ secrets.OSS_REGION }}
-      #     accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
-      #     accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-      #     source: public
-      - name: list environment variables
-        run: printenv
-      # - name: refresh CDN
-      #   uses: frenchvandal/action-aliyun-cdn-refresh@master
-      #   with:
-      #     accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
-      #     accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-      #     cdnDomain: https://frenchvandal.cn
-      #     source: public
+      - name: Upload to OSS bucket
+        uses: frenchvandal/action-oss-upload@master
+        with:
+          bucket: ${{ secrets.OSS_BUCKET }}
+          region: ${{ secrets.OSS_REGION }}
+          accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          source: public
+      # - name: list environment variables
+      #   run: printenv
+      - name: refresh CDN
+        uses: frenchvandal/action-aliyun-cdn-refresh@master
+        with:
+          accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          cdnDomain: https://frenchvandal.cn
+          source: public
