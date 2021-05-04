@@ -29,8 +29,6 @@ jobs:
           accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           source: public
-      # - name: list environment variables
-      #   run: printenv
       - name: refresh CDN
         uses: frenchvandal/action-aliyun-cdn-refresh@master
         with:
