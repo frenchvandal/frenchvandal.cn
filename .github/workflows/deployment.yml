@@ -16,7 +16,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          cp /home/runner/work/_actions/frenchvandal/action-aliyun-cdn-refresh/master/package.json ../
+          mv /home/runner/work/_actions/frenchvandal/action-aliyun-cdn-refresh/master/package.json /home/runner/work/_actions/frenchvandal/action-aliyun-cdn-refresh/package.json
           cat /home/runner/work/_actions/frenchvandal/action-aliyun-cdn-refresh/package.json
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
