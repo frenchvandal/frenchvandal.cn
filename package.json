@@ -2,6 +2,7 @@
   "name": "frenchvandal.com",
   "version": "1.0.0",
   "description": "![frenchvandal.com official banner](https://raw.githubusercontent.com/frenchvandal/frenchvandal/master/static/banner.png \"Official banner\")",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/frenchvandal/frenchvandal.com/issues"
   },
-  "homepage": "https://github.com/frenchvandal/frenchvandal.com#readme"
+  "homepage": "https://github.com/frenchvandal/frenchvandal.com#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.13",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.1",
+    "tailwindcss": "^2.1.2"
+  }
 }
