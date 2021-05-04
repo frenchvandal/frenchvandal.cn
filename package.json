@@ -1,0 +1,20 @@
+{
+  "name": "frenchvandal.com",
+  "version": "1.0.0",
+  "description": "![frenchvandal.com official banner](https://raw.githubusercontent.com/frenchvandal/frenchvandal/master/static/banner.png \"Official banner\")",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frenchvandal/frenchvandal.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frenchvandal/frenchvandal.com/issues"
+  },
+  "homepage": "https://github.com/frenchvandal/frenchvandal.com#readme"
+}
