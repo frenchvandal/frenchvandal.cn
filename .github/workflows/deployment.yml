@@ -9,7 +9,7 @@ on:
       - ".github/workflows/deployment.yml"
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -20,7 +20,7 @@ jobs:
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
-          version: v0.75.1
+          version: latest
           extended: false
           args: --cleanDestinationDir --minify --disableKinds RSS
       - name: Upload to OSS bucket
