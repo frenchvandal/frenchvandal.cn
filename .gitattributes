@@ -1,9 +1,9 @@
-text=auto
+* text=auto
 /dist/** linguist-generated=true
 /lib/**  linguist-generated=true
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
-*.md  text diff=markdown
+*.md  text diff=markdown eol=lf
 *.png binary
 *.sh  text eol=lf
-*.svg text
+*.svg text eol=lf
