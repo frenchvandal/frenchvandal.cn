@@ -5,7 +5,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "update": "npx -y typesync && npx -y npm-check-updates -u",
+    "postupdate": "npm install && npm update"
   },
   "repository": {
     "type": "git",
