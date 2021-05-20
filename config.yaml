@@ -39,16 +39,16 @@ params:
   enableEmoji: true
 
 outputFormats:
-	json:
-		baseName: "index"
-		mediaType: "application/json"
-		isPlainText: true
+  json:
+    baseName: "index"
+    mediaType: "application/json"
+    isPlainText: true
 
 outputs:
-	home:
-		- html
-		- rss
-		- json
+  home:
+    - html
+    - rss
+    - json
 
 menu:
   nav:
