@@ -22,7 +22,7 @@ jobs:
         with:
           version: latest
           extended: false
-          args: --cleanDestinationDir --minify --disableKinds RSS
+          args: --cleanDestinationDir --minify
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
         with:
