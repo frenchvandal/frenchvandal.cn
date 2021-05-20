@@ -1,4 +1,4 @@
-baseURL: "https://frenchvandal.cn"
+baseURL: "https://frenchvandal.cn/"
 title: Miscellanies
 author: frenchvandal
 summaries: true
@@ -9,7 +9,7 @@ theme: hugo-flex
 publishDir: public
 enableGitInfo: true
 copyright: >
-  Copyright © 2020 frenchvandal – Except where otherwise noted, content on this
+  Copyright © 2021 frenchvandal – Except where otherwise noted, content on this
   site is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives
   4.0 International License (https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
