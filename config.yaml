@@ -35,8 +35,20 @@ params:
   schema: true
   opengraph: true
   twittercards: true
-  summaries: false
+  summaries: true
   enableEmoji: true
+
+outputFormats:
+	json:
+		baseName: "index"
+		mediaType: "application/json"
+		isPlainText: true
+
+outputs:
+	home:
+		- html
+		- rss
+		- json
 
 menu:
   nav:
