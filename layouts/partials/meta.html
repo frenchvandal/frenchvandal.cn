@@ -12,12 +12,12 @@
 <meta name="msapplication-TileColor" content="#436b95">
 <meta name="theme-color" content="#436b95">
 
-{{ with .Description }}
+{{- with .Description -}}
   <meta name="description" content="{{ . }}">
-{{ else }}
+{{- else -}}
   {{ if .IsPage }}
     <meta name="description" content="{{ .Summary }}">
-  {{ else }}
+  {{- else -}}
     {{ with site.Params.description }}
       <meta name="description" content="{{ . }}">
     {{ end }}
