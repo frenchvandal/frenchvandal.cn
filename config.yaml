@@ -33,7 +33,7 @@ params:
   enableEmoji: true
 
 js:
-  - js/perf.js
+  - themes/hugo-flex/assets/js/perf.js
 
 outputFormats:
   json:

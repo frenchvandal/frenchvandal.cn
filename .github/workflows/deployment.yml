@@ -9,6 +9,7 @@ on:
       - "static/**"
       - "themes/**"
       - ".github/workflows/deployment.yml"
+      - "config.yaml"
 jobs:
   build:
     runs-on: ubuntu-20.04
