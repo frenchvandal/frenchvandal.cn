@@ -14,11 +14,11 @@
 
 {{- with .Description -}}
   <meta name="description" content="{{ . }}">
-{{- else -}}
-  {{ if .IsPage }}
+{{ else }}
+  {{- if .IsPage -}}
     <meta name="description" content="{{ .Summary }}">
-  {{- else -}}
-    {{ with site.Params.description }}
+  {{ else }}
+    {{- with site.Params.description -}}
       <meta name="description" content="{{ . }}">
     {{ end }}
   {{ end }}
