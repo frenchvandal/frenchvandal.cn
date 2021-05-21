@@ -1,9 +1,9 @@
 {{ define "main" }}
 
   {{ partial "heading.html" . }}
-<h5>declare</h5>
+
   {{ .Content }}
-<h5>begin</h5>
+
   {{ range .Pages.GroupByPublishDate "2006" }}
     <h3>{{ .Key }}</h3>
     <ul>
@@ -14,5 +14,5 @@
       {{ end }}
     </ul>
   {{ end }}
-<h5>end</h5>
+
 {{ end }}
