@@ -6,7 +6,7 @@
   {{- partial "title.html" . -}}
   {{- partial "link.html" . -}}
   {{- partial "load_site_assets.html" . -}}
-  {{ block "load_page_assets" . }}
+  {{- block "load_page_assets" . -}}
     {{ with .Content }}{{ end }}
   {{ end }}
   {{- partial "assets.html" . -}}
