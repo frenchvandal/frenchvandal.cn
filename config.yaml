@@ -32,9 +32,6 @@ params:
   summaries: true
   enableEmoji: true
 
-js:
-  - js/perf.js
-
 outputFormats:
   json:
     baseName: "index"
@@ -46,6 +43,22 @@ outputs:
     - html
     - rss
     - json
+
+frontmatter:
+  date:
+  - date
+  - publishDate
+  - lastmod
+  expiryDate:
+  - expiryDate
+  lastmod:
+  - :git
+  - lastmod
+  - date
+  - publishDate
+  publishDate:
+  - publishDate
+  - date
 
 menu:
   nav:
