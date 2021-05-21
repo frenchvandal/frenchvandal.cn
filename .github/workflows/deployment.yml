@@ -6,6 +6,7 @@ on:
     paths:
       - "content/**"
       - "static/**"
+      - "themes/**"
       - ".github/workflows/deployment.yml"
 jobs:
   build:

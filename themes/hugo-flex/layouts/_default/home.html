@@ -28,7 +28,7 @@
 
   {{ range $paginator.Pages }}
     <article>
-      {{ partial "heading.html" . }}
+      {{- partial "heading.html" . -}}
       {{ if site.Params.summaries }}
         {{ .Summary }}
         {{ if .Truncated }}
