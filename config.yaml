@@ -33,7 +33,7 @@ params:
   enableEmoji: true
 
 js:
-  - assets/js/perf.js
+  - js/perf.js
 
 outputFormats:
   json:
