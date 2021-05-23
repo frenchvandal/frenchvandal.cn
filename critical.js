@@ -7,6 +7,7 @@ critical.generate(
       `${process.cwd()}/public/css/base.min.d34db1546050ff69f503cf2518439fcf67b079db9e982f7ddaa98992bbfe0ec1.css`,
     ],
     src: "index.html",
+    target: "index.html",
     inline: true,
     dimensions: [
       {
