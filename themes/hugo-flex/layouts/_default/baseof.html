@@ -3,13 +3,13 @@
 
 <head>
   {{ partial "meta.html" . }}
-  {{- partial "title.html" . -}}
-  {{- partial "link.html" . -}}
-  {{- partial "load_site_assets.html" . -}}
-  {{- block "load_page_assets" . -}}
+  {{ partial "title.html" . }}
+  {{ partial "link.html" . }}
+  {{ partial "load_site_assets.html" . }}
+  {{ block "load_page_assets" . }}
     {{ with .Content }}{{ end }}
   {{ end }}
-  {{- partial "assets.html" . -}}
+  {{ partial "assets.html" . }}
 </head>
 
 <body>

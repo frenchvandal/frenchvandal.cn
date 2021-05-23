@@ -2,9 +2,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{{- with .Description -}}
+{{ with .Description }}
   <meta name="description" content="{{ . }}">
-{{- else -}}
+{{ else }}
   {{ if .IsPage }}
     <meta name="description" content="{{ .Summary }}">
   {{ else }}
@@ -15,11 +15,11 @@
 {{ end }}
 
 {{ if site.Params.schema }}
-  {{- template "_internal/schema.html" . -}}
+  {{ template "_internal/schema.html" . }}
 {{ end }}
 
 {{ if site.Params.opengraph }}
-  {{- template "_internal/opengraph.html" . -}}
+  {{ template "_internal/opengraph.html" . }}
 {{ end }}
 
 {{ if site.Params.twittercards }}

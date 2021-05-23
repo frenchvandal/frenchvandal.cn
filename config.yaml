@@ -27,8 +27,8 @@ params:
     it into your favorite feed reader.
   divider: '\2015\2015'
   schema: true
-  opengraph: true
-  twittercards: true
+  opengraph: false
+  twittercards: false
   summaries: true
   enableEmoji: true
 
@@ -46,19 +46,19 @@ outputs:
 
 frontmatter:
   date:
-  - date
-  - publishDate
-  - lastmod
+    - date
+    - publishDate
+    - lastmod
   expiryDate:
-  - expiryDate
+    - expiryDate
   lastmod:
-  - :git
-  - lastmod
-  - date
-  - publishDate
+    - :git
+    - lastmod
+    - date
+    - publishDate
   publishDate:
-  - publishDate
-  - date
+    - publishDate
+    - date
 
 menu:
   nav:
