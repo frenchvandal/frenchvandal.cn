@@ -18,12 +18,34 @@ jobs:
         uses: actions/checkout@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set-up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          check-latest: true
+      - name: Update NPM
+        run: sudo npm install -g npm@latest
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Install Dependencies
+        run: npm install
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
           version: latest
           extended: false
           args: --cleanDestinationDir --enableGitInfo
+      - name: inline critical CSS
+        run: node critical.js
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
         with:
@@ -32,5 +54,3 @@ jobs:
           accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           source: public
-      - name: inline critical CSS
-        run: node critical.js
