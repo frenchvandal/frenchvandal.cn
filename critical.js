@@ -2,9 +2,9 @@ const critical = require("critical");
 
 critical.generate(
   {
-    base: "public/",
+    base: `${process.cwd()}/public/`,
     css: [
-      "public/css/base.min.d34db1546050ff69f503cf2518439fcf67b079db9e982f7ddaa98992bbfe0ec1.css",
+      `${process.cwd()}/public/css/base.min.d34db1546050ff69f503cf2518439fcf67b079db9e982f7ddaa98992bbfe0ec1.css`,
     ],
     src: "index.html",
     inline: true,
@@ -23,7 +23,7 @@ critical.generate(
     if (err) {
       console.error(err);
     } else if (output) {
-      console.log("Generated critical CSS");
+      console.log(`Generated critical CSS for ${process.cwd()}/public/`);
     }
   }
 );
