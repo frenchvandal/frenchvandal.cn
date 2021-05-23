@@ -43,7 +43,7 @@ jobs:
         with:
           version: latest
           extended: false
-          args: --cleanDestinationDir --enableGitInfo
+          args: --cleanDestinationDir --minify --enableGitInfo
       - name: inline critical CSS
         run: node critical.js
       - name: Upload to OSS bucket
