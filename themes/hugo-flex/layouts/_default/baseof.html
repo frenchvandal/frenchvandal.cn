@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode }}">
-
 <head>
   {{ partial "meta.html" . }}
   {{ partial "title.html" . }}
@@ -11,7 +10,6 @@
   {{ end }}
   {{ partial "assets.html" . }}
 </head>
-
 <body>
   {{ partialCached "banner.html" . }}
   <main>
@@ -23,5 +21,4 @@
   </main>
   {{ partialCached "footer.html" . }}
 </body>
-
 </html>
