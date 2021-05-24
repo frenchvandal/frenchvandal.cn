@@ -11,15 +11,14 @@
 <meta name="application-name" content="Miscellanies">
 <meta name="msapplication-TileColor" content="#436b95">
 <meta name="theme-color" content="#436b95">
-
 {{- with .Description -}}
-  <meta name="description" content="{{ . }}">
+  <meta name="description" content="{{- . }}">
 {{ else }}
   {{- if .IsPage -}}
-    <meta name="description" content="{{ .Summary }}">
+    <meta name="description" content="{{- .Summary }}">
   {{ else }}
     {{- with site.Params.description -}}
-      <meta name="description" content="{{ . }}">
+      <meta name="description" content="{{- . }}">
     {{ end }}
   {{ end }}
 {{ end }}
