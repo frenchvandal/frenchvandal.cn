@@ -1,6 +1,6 @@
 ---
-title: Archives
-url: /archives
+title: Sitemap
+url: /sitemap
 outputs:
   - html
 ---
