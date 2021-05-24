@@ -21,7 +21,7 @@ params:
   color: rgb(18,18,18)
   width: 47rem
   description: Cool stories of my life
-  footer: <span class="js-loaded-in"></span>
+  footer: This is a footer
   rss: >-
     To subscribe to this RSS feed, copy the address in the address bar and paste
     it into your favorite feed reader.
