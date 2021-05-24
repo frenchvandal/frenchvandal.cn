@@ -43,7 +43,7 @@ jobs:
           args: --cleanDestinationDir --enableGitInfo
       - name: inline critical CSS
         run: |
-          npx prettier --write ${{ github.workspace	}}/public/**/*.{html,json}
+          npx prettier --write ${{ github.workspace }}/public/**/*.{html,json}
           node critical.js
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
