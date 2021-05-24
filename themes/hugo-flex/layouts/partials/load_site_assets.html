@@ -11,7 +11,7 @@
   {{ $site_css = $css_list | resources.Concat "css/base.css" }}
 {{ end }}
 
-{{ minify $site_css | fingerprint "sha512" | .Page.Scratch.SetInMap "css" "base" }}
+{{ minify $site_css | .Page.Scratch.SetInMap "css" "base" }}
 
 {{ with site.Params.js }}
   {{ $js_list := slice }}
