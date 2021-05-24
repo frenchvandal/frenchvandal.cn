@@ -43,7 +43,7 @@ jobs:
           args: --cleanDestinationDir --enableGitInfo
       - name: inline critical CSS
         run: |
-          prettier --write *.html
+          npx prettier --write *.html
           node critical.js
       - name: Upload to OSS bucket
         uses: frenchvandal/action-oss-upload@master
