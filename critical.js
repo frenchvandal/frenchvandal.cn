@@ -4,7 +4,7 @@ critical.generate(
   {
     base: `${process.cwd()}/public/`,
     css: [
-      `${process.cwd()}/public/css/base.min.d34db1546050ff69f503cf2518439fcf67b079db9e982f7ddaa98992bbfe0ec1.css`,
+      `${process.cwd()}/public/css/base.min.3fb4c3be945da2c8d9a72ca35e718facbadf2aca3b3ca1daefb9641a808076cb.css`,
     ],
     src: "index.html",
     target: "index.html",
