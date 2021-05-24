@@ -12,27 +12,25 @@
 <meta name="msapplication-TileColor" content="#436b95">
 <meta name="theme-color" content="#436b95">
 {{- with .Description }}
-  <meta name="description" content="{{- . }}">
+<meta name="description" content="{{- . }}">
 {{ else }}
-  {{- if .IsPage -}}
-    <meta name="description" content="{{- .Summary }}">
-  {{ else }}
-    {{- with site.Params.description -}}
-      <meta name="description" content="{{- . }}">
-    {{ end }}
-  {{ end }}
+{{- if .IsPage -}}
+<meta name="description" content="{{- .Summary }}">
+{{ else }}
+{{- with site.Params.description -}}
+<meta name="description" content="{{- . }}">
+{{ end }}
+{{ end }}
 {{ end }}
 
 {{- if site.Params.schema }}
-  {{- template "_internal/schema.html" . }}
+{{- template "_internal/schema.html" . }}
 {{- end }}
-
 {{- if site.Params.opengraph }}
-  {{- template "_internal/opengraph.html" . }}
+{{- template "_internal/opengraph.html" . }}
 {{- end }}
-
 {{- if site.Params.twittercards }}
-  {{- template "_internal/twitter_cards.html" . }}
+{{- template "_internal/twitter_cards.html" . }}
 {{ end }}
 
 {{ hugo.Generator }}
