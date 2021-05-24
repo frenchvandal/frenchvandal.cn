@@ -1,7 +1,6 @@
 {{ range .Scratch.GetSortedMapValues "css" }}
   <link rel="preload" href="{{ .RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-  <noscript><link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-  </noscript>
+  <noscript><link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></noscript>
 {{ end }}
 
 {{ range .Scratch.GetSortedMapValues "js" }}
