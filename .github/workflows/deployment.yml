@@ -51,3 +51,9 @@ jobs:
           accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           source: public
+      - name: install pngquant
+        run: |
+          git clone --recursive https://github.com/kornelski/pngquant.git
+          cd pngquant
+          cargo build --release
+          pngquant --version
