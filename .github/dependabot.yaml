@@ -1,20 +1,20 @@
 version: 2
 updates:
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: 'daily'
-      time: '08:00'
-      timezone: 'Europe/Paris'
+      interval: "daily"
+      time: "07:00"
+      timezone: "Europe/Paris"
     commit-message:
-      prefix: 'ci'
-      include: 'scope'
-  - package-ecosystem: 'npm'
-    directory: '/'
+      prefix: "ci"
+      include: "scope"
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
-      interval: 'daily'
-      time: '07:00'
-      timezone: 'Europe/Paris'
+      interval: "daily"
+      time: "06:00"
+      timezone: "Europe/Paris"
     commit-message:
-      prefix: 'build'
-      include: 'scope'
+      prefix: "build"
+      include: "scope"
