@@ -41,6 +41,8 @@ jobs:
           version: latest
           extended: false
           args: --cleanDestinationDir --enableGitInfo
+      - name: hugo verion
+        run: hugo version
       - name: inline critical CSS
         run: node critical.js
       - name: Upload to OSS bucket
