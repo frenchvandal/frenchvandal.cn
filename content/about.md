@@ -9,6 +9,6 @@ Hi, my name is Jane Doe.
 
 It's possible to process video motion data > 30 frames/sec with the Raspberry Pi Zero, using the GPU like.
 
-Farewell!
+Farewell! Kikoo!
 
 JCVD.
