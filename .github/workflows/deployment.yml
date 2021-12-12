@@ -34,9 +34,9 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install Dependencies
-        run: 
-          | node -v
-          | npm install
+        run: |
+          node -v
+          npm install
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
