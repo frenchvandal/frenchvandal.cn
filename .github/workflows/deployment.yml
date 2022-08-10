@@ -12,7 +12,7 @@ on:
       - "config.yaml"
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -37,6 +37,7 @@ jobs:
         run: |
           node -v
           npm install
+          npm -v
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
