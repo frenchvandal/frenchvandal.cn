@@ -12,7 +12,7 @@ on:
       - "config.yaml"
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -55,12 +55,3 @@ jobs:
           accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           source: public
-      - name: Upload to COS bucket
-        uses: TencentCloud/cos-action@b0aa648235fb35a1bdd6a77f529eb0ac4c2f1c25
-        with:
-         secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
-         secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
-         cos_bucket: ${{ secrets.COS_BUCKET }}
-         cos_region: ${{ secrets.COS_REGION }}
-         local_path: public
-         clean: true
