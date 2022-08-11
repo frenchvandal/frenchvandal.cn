@@ -56,3 +56,12 @@ jobs:
           accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
           source: public
+      - name: configure Aliyun CLI
+        run: |
+          aliyun configure set \
+          --profile akProfile \
+          --mode AK \
+          --region ${{ secrets.OSS_REGION }} \
+          --access-key-id ${{ secrets.OSS_ACCESS_KEY_ID }} \
+          --access-key-secret ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          aliyun configure list
