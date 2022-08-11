@@ -1,6 +1,6 @@
 ---
 title: To boldly go ☝🏻
-date: 2021-05-12
+date: 2022-05-12
 description: Yet another example blog post.
 categories:
   - demo
