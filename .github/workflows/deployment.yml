@@ -59,7 +59,7 @@ jobs:
       - name: configure Aliyun CLI
         run: |
           aliyun configure set \
-          --profile akProfile \
+          --profile default \
           --mode AK \
           --region ${{ secrets.OSS_REGION }} \
           --access-key-id ${{ secrets.OSS_ACCESS_KEY_ID }} \
