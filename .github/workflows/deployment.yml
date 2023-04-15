@@ -19,32 +19,12 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Set-up Node
-        uses: actions/setup-node@v3.6.0
-        with:
-          node-version: "16"
-      - name: Cache node modules
-        uses: actions/cache@v3.3.1
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
       - name: Install acme.sh
         run: |
           curl https://get.acme.sh | sh
         shell: bash
       - name: Emit certificate
         run: |      
-          ~/.acme.sh/acme.sh --register-account -m ${{ secrets.ACME_EMAIL }} --server google --eab-kid ${{ secrets.EAB_KID }} --eab-hmac-key ${{ secrets.EAB_HMAC_KEY }}
           ~/.acme.sh/acme.sh --issue --server google -d frenchvandal.cn -d www.frenchvandal.cn  --dns dns_ali
         shell: bash
       - name: Upload certificate
