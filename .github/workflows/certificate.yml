@@ -19,8 +19,7 @@ jobs:
         shell: bash
       - name: Emit certificate
         run: |      
-          ~/.acme.sh/acme.sh --register-account -m philippe.ribeiro@gmail.com --server google --eab-kid 660f7aa66f86ab989c65a747726881c6 --eab-hmac-key xrUHa3sJCSLAF0krdHoNNiepUZbwlQe-5RkqqqCPk3wat9H_anrRHZBO6W0UMsvZ_BB_OkVyH9Zhxcda3hVbRA
-          ~/.acme.sh/acme.sh --issue --server google -d frenchvandal.cn -d www.frenchvandal.cn --dns dns_ali
+          ~/.acme.sh/acme.sh --issue -d frenchvandal.cn -d www.frenchvandal.cn --dns dns_ali
         shell: bash
       - name: Upload certificate
         uses: actions/upload-artifact@v3
