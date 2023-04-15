@@ -4,13 +4,7 @@ on:
   push:
     branches: master
     paths:
-      - "content/**"
-      - "layouts/**"
-      - "static/**"
-      - "themes/**"
       - ".github/workflows/certificate.yml"
-      - "config.yaml"
-
 env:
   Ali_Key: ${{ secrets.Ali_Key }}
   Ali_Secret: ${{ secrets.Ali_Secret }}
@@ -25,8 +19,8 @@ jobs:
         shell: bash
       - name: Emit certificate
         run: |      
-          ~/.acme.sh/acme.sh  --register-account -m ${{ secrets.ACME_EMAIL }} --server google --eab-kid ${{ secrets.EAB_KID }} --eab-hmac-key ${{ secrets.EAB_HMAC_KEY }}
-          ~/.acme.sh/acme.sh --issue --server google -d frenchvandal.cn -d www.frenchvandal.cn  --dns dns_ali --debug
+          ~/.acme.sh/acme.sh --register-account -m ${{ secrets.ACME_EMAIL }} --server google --eab-kid ${{ secrets.EAB_KID }} --eab-hmac-key ${{ secrets.EAB_HMAC_KEY }}
+          ~/.acme.sh/acme.sh --issue --server google -d frenchvandal.cn -d www.frenchvandal.cn  --dns dns_ali
         shell: bash
       - name: Upload certificate
         uses: actions/upload-artifact@v3
@@ -34,4 +28,3 @@ jobs:
          name: certificate
          path: |
            /home/runner/.acme.sh/
-
