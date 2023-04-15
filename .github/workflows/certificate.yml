@@ -8,7 +8,7 @@ on:
       - "layouts/**"
       - "static/**"
       - "themes/**"
-      - ".github/workflows/deployment.yml"
+      - ".github/workflows/certificate.yml"
       - "config.yaml"
 
 env:
