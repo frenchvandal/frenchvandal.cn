@@ -44,7 +44,7 @@ jobs:
         shell: bash
       - name: Emit certificate
         run: |      
-          ~/.acme.sh/acme.sh --register-account  -m  email=${{ secrets.ACME_EMAIL }} --server google --eab-kid ${{ secrets.EAB_KID }} --eab-hmac-key ${{ secrets.EAB_HMAC_KEY }}
+          ~/.acme.sh/acme.sh --register-account  -m  ${{ secrets.ACME_EMAIL }} --server google --eab-kid ${{ secrets.EAB_KID }} --eab-hmac-key ${{ secrets.EAB_HMAC_KEY }}
           ~/.acme.sh/acme.sh --issue  --server google -d frenchvandal.cn -d www.frenchvandal.cn  --dns dns_ali
         shell: bash
 
