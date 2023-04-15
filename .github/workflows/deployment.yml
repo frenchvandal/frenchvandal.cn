@@ -40,7 +40,10 @@ jobs:
             ${{ runner.os }}-
       - name: Install acme.sh
         run: |
-          curl https://get.acme.sh | sh -s email=${{ secrets.ACME_EMAIL }}
+          curl https://get.acme.sh | sh
+        shell: bash
+      - name: Emit certificate
+        run: |      
           acme.sh  --register-account  -m  email=${{ secrets.ACME_EMAIL }} --server google --eab-kid ${{ secrets.EAB_KID }} --eab-hmac-key ${{ secrets.EAB_HMAC_KEY }}
           acme.sh --issue  --server google -d frenchvandal.cn -d www.frenchvandal.cn  --dns dns_ali
         shell: bash
