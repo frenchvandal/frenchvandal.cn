@@ -19,7 +19,7 @@ jobs:
         shell: bash
       - name: Emit certificate
         run: |      
-          ~/.acme.sh/acme.sh --register-account -m ${{ secrets.ACME_EMAIL }} --server google --eab-kid 660f7aa66f86ab9876811f0399b75ca1 --eab-hmac-key lKV860_rF6DnU8SZG__Fa0HGLk24EaV405obqt1qsJQtgwfKnGsh5ry6CCyyDmePeCYkT42-b4fO605u4ilaNg
+          ~/.acme.sh/acme.sh --register-account -m frenchvandal@yandex.com --server google --eab-kid 660f7aa66f86ab9876811f0399b75ca1 --eab-hmac-key lKV860_rF6DnU8SZG__Fa0HGLk24EaV405obqt1qsJQtgwfKnGsh5ry6CCyyDmePeCYkT42-b4fO605u4ilaNg
           ~/.acme.sh/acme.sh --issue --server google -d frenchvandal.cn -d www.frenchvandal.cn  --dns dns_ali
         shell: bash
       - name: Upload certificate
