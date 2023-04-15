@@ -25,7 +25,7 @@ jobs:
         shell: bash
       - name: Emit certificate
         run: |      
-          ~/.acme.sh/acme.sh --issue --server google -d frenchvandal.cn -d www.frenchvandal.cn  --dns dns_ali
+          ~/.acme.sh/acme.sh --issue --server google -d frenchvandal.cn -d www.frenchvandal.cn  --dns dns_ali --debug
         shell: bash
       - name: Upload certificate
         uses: actions/upload-artifact@v3
