@@ -19,6 +19,7 @@ jobs:
         shell: bash
       - name: Emit certificate
         run: |      
+          ~/.acme.sh/acme.sh --register-account -m philippe.ribeiro@gmail.com
           ~/.acme.sh/acme.sh --issue -d frenchvandal.cn -d www.frenchvandal.cn --dns dns_ali
         shell: bash
       - name: Upload certificate
