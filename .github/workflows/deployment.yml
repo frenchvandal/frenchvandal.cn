@@ -10,6 +10,11 @@ on:
       - "themes/**"
       - ".github/workflows/deployment.yml"
       - "config.yaml"
+
+env:
+  Ali_Key: ${{ secrets.Ali_Key }}
+  Ali_Secret: ${{ secrets.Ali_Secret }}
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -33,34 +38,10 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Install Dependencies
+      - name: Install acme.sh
         run: |
-          node -v
-          npm install
-          npm -v
-      - name: Install & Run Hugo
-        uses: frenchvandal/action-hugo@master
-        with:
-          version: latest
-          extended: false
-          args: --cleanDestinationDir --enableGitInfo
-      - name: hugo version
-        run: hugo version
-      - name: inline critical CSS
-        run: node critical.js
-      - name: configure Aliyun CLI
-        run: |
-          aliyun configure set \
-          --profile default \
-          --mode AK \
-          --region ${{ secrets.OSS_REGION }} \
-          --access-key-id ${{ secrets.OSS_ACCESS_KEY_ID }} \
-          --access-key-secret ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-      - name: Upload to OSS bucket
-        uses: frenchvandal/action-oss-upload@master
-        with:
-          bucket: ${{ secrets.OSS_BUCKET }}
-          region: ${{ secrets.OSS_REGION }}
-          accessKeyId: ${{ secrets.OSS_ACCESS_KEY_ID }}
-          accessKeySecret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-          source: public
+          curl https://get.acme.sh | sh -s email=${{ secrets.ACME_EMAIL }}
+          acme.sh  --register-account  -m  email=${{ secrets.ACME_EMAIL }} --server google --eab-kid ${{ secrets.EAB_KID }} --eab-hmac-key ${{ secrets.EAB_HMAC_KEY }}
+          acme.sh --issue  --server google -d frenchvandal.cn -d www.frenchvandal.cn  --dns dns_ali
+
+
