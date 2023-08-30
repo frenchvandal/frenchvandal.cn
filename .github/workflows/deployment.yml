@@ -46,8 +46,6 @@ jobs:
           args: --cleanDestinationDir --enableGitInfo
       - name: hugo version
         run: hugo version
-      - name: inline critical CSS
-        run: node critical.js
       - name: configure Aliyun CLI
         run: |
           aliyun configure set \
