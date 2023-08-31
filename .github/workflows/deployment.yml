@@ -42,7 +42,7 @@ jobs:
         uses: frenchvandal/action-hugo@master
         with:
           version: v0.117.0
-          extended: true
+          extended: false
           args: --cleanDestinationDir --enableGitInfo
       - name: hugo version
         run: hugo version
