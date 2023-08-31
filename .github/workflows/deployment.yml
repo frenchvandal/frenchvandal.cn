@@ -21,7 +21,7 @@ jobs:
       - name: Set-up Node
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: "16"
+          node-version: "20"
       - name: Cache node modules
         uses: actions/cache@v3.3.1
         env:
@@ -41,7 +41,7 @@ jobs:
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
-          version: latest
+          version: v0.116.0
           extended: false
           args: --cleanDestinationDir --enableGitInfo
       - name: hugo version
