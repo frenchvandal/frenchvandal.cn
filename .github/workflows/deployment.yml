@@ -41,7 +41,7 @@ jobs:
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
-          version: latest
+          version: v1.0.0
           extended: false
           args: --cleanDestinationDir --enableGitInfo
       - name: hugo version
