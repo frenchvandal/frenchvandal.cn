@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/frenchvandal/frenchvandal.com#readme",
   "devDependencies": {
-    "critical": "^5.1.1",
+    "critical": "^5.2.0",
     "prettier": "^3.0.3",
     "prettier-plugin-go-template": "^0.0.15"
   },
