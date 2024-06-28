@@ -23,7 +23,7 @@ jobs:
           ~/.acme.sh/acme.sh --issue --server google -d frenchvandal.cn -d www.frenchvandal.cn --dns dns_ali
         shell: bash
       - name: Upload certificate
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
          name: certificate
          path: |
