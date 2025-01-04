@@ -25,9 +25,9 @@ jobs:
           ref: main
           path: ./.github/actions/actions-oidc-debugger
       - name: Set-up Node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: 22
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
