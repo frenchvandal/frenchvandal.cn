@@ -33,3 +33,7 @@ jobs:
         with:
           version: latest
           extended: false
+      - name: Debug OIDC Claims
+        uses: ./.github/actions/actions-oidc-debugger
+        with:
+          audience: "${{ github.server_url }}/${{ github.repository_owner }}"
