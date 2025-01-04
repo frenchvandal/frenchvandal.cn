@@ -12,6 +12,7 @@ on:
       - "config.yaml"
 permissions:
   id-token: write
+  contents: read
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -20,6 +21,10 @@ jobs:
         uses: actions/checkout@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          repository: github/actions-oidc-debugger
+          ref: main
+          token: ${{ secrets.your-checkout-token }}
+          path: ./.github/actions/actions-oidc-debugger
       - name: Set-up Node
         uses: actions/setup-node@v4.1.0
         with:
