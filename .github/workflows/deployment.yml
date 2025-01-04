@@ -23,7 +23,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: github/actions-oidc-debugger
           ref: main
-          token: ${{ secrets.your-checkout-token }}
           path: ./.github/actions/actions-oidc-debugger
       - name: Set-up Node
         uses: actions/setup-node@v4.1.0
