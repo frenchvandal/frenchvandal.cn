@@ -13,11 +13,9 @@ on:
 permissions:
   id-token: write
   contents: read
-env: 
-  ALIBABA_CLOUD_ROLE_ARN: ${{ secrets.ALIBABA_CLOUD_ROLE_ARN }}
-  ALIBABA_CLOUD_OIDC_PROVIDER_ARN: ${{ secrets.ALIBABA_CLOUD_OIDC_PROVIDER_ARN }}
 jobs:
   build:
+    environment: Production
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -36,6 +34,9 @@ jobs:
         with:
           version: latest
           extended: false
+        env: 
+          ALIBABA_CLOUD_ROLE_ARN: ${{ secrets.ALIBABA_CLOUD_ROLE_ARN }}
+          ALIBABA_CLOUD_OIDC_PROVIDER_ARN: ${{ secrets.ALIBABA_CLOUD_OIDC_PROVIDER_ARN }}
       - name: Debug OIDC Claims
         uses: ./.github/actions/actions-oidc-debugger
         with:
