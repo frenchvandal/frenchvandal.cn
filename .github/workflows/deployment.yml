@@ -13,6 +13,9 @@ on:
 permissions:
   id-token: write
   contents: read
+env: 
+  ALIBABA_CLOUD_ROLE_ARN: ${{ secrets.ALIBABA_CLOUD_ROLE_ARN }}
+  ALIBABA_CLOUD_OIDC_PROVIDER_ARN: ${{ secrets.ALIBABA_CLOUD_OIDC_PROVIDER_ARN }}
 jobs:
   build:
     runs-on: ubuntu-24.04
