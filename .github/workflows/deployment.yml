@@ -16,15 +16,12 @@ permissions:
 jobs:
   build:
     environment: Production
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repository: github/actions-oidc-debugger
-          ref: main
-          path: ./.github/actions/actions-oidc-debugger
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
