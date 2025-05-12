@@ -25,24 +25,12 @@ jobs:
           repository: github/actions-oidc-debugger
           ref: main
           path: ./.github/actions/actions-oidc-debugger
-      - name: Set-up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Debug OIDC Claims
-        uses: ./.github/actions/actions-oidc-debugger
-        with:
-          audience: "${{ github.server_url }}/${{ github.repository_owner }}"
       - name: Install & Run Hugo
         uses: frenchvandal/action-hugo@master
         with:
           version: latest
-          extended: false
+          extended: true
         env:
           ALIBABA_CLOUD_ROLE_ARN: ${{ secrets.ALIBABA_CLOUD_ROLE_ARN }}
           ALIBABA_CLOUD_OIDC_PROVIDER_ARN: ${{ secrets.ALIBABA_CLOUD_OIDC_PROVIDER_ARN }}
-      - name: Read Environment Variables
-        run: |
-          echo "ALIBABA_CLOUD_ACCESS_KEY_ID=${{ env.ALIBABA_CLOUD_ACCESS_KEY_ID }}"
-          echo "ALIBABA_CLOUD_ACCESS_KEY_SECRET=${{ env.ALIBABA_CLOUD_ACCESS_KEY_SECRET }}"
-          echo "ALIBABA_CLOUD_SECURITY_TOKEN=${{ env.ALIBABA_CLOUD_SECURITY_TOKEN }}"
+
