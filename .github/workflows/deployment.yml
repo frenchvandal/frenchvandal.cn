@@ -41,3 +41,8 @@ jobs:
         env:
           ALIBABA_CLOUD_ROLE_ARN: ${{ secrets.ALIBABA_CLOUD_ROLE_ARN }}
           ALIBABA_CLOUD_OIDC_PROVIDER_ARN: ${{ secrets.ALIBABA_CLOUD_OIDC_PROVIDER_ARN }}
+      - name: Read Environment Variables
+        run: |
+          echo "ALIBABA_CLOUD_ACCESS_KEY_ID=${{ env.ALIBABA_CLOUD_ACCESS_KEY_ID }}"
+          echo "ALIBABA_CLOUD_ACCESS_KEY_SECRET=${{ env.ALIBABA_CLOUD_ACCESS_KEY_SECRET }}"
+          echo "ALIBABA_CLOUD_SECURITY_TOKEN=${{ env.ALIBABA_CLOUD_SECURITY_TOKEN }}"
